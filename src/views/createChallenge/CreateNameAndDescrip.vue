@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- back arrow to forventninger -->
+        <!-- back arrow to createforventninger -->
 
         <!-- header with Lav din egen udfordring -->
         <!-- text that says Giv din udfordring et navn og en beskrivelse -->
