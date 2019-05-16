@@ -3,8 +3,8 @@
         <!-- arrow button back to frontPage -->
 
         <!-- Text saying Login -->
-        <!-- Input field for Email -->
-        <!-- Input field for password -->
+        <!-- Input field for Email v-model="Email" -->
+        <!-- Input field for password v-model="Password" -->
 
         <!-- button for login when input fields have been filled out -->
     </div>
@@ -14,7 +14,8 @@
 export default {
     data() {
         return {
-
+            // Email: null
+            // Password: null
         }
     },
     methods: {
