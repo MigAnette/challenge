@@ -1,8 +1,8 @@
 <template>
     <div>
-        <!-- back arrow to the page create Trin -->
+        <!-- back arrow to the page edit example Trin -->
 
-        <!-- header with Lav din egen udfordring -->
+        <!-- header with Rediger Eksemplet -->
         <!-- header with Lav Statusplan -->
 
         <!-- text with Hvor mange dag skal der gå mellem notifikation? -->
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: 'CreateStatusPlan',
+    name: 'EditExampleStatusPlan',
     data() {
         return {
 

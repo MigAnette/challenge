@@ -1,21 +1,21 @@
 <template>
     <div>
-        <!-- back arrow to profile -->
+        <!-- back arrow to the page before -->
 
-        <!-- header with Rediger din egen udfordring -->
-        <!-- header with Rediger Forventninger -->
-
-        <!-- Question -->
-            <!-- textbox with the answer, but able to change -->
+        <!-- header with Rediger Eksemplet -->
+        <!-- header with Tilføj Forventninger -->
 
         <!-- Question -->
-            <!-- textbox with the answer, but able to change -->
+            <!-- textbox for the answer -->
 
         <!-- Question -->
-            <!-- 5 radiobuttons one is pushed but can be changed -->
+            <!-- textbox for the answer -->
+
+        <!-- Question -->
+            <!-- 5 radiobuttons one can be pushed -->
         
         <!-- Question -->
-            <!-- 5 radiobuttons one is pushed but can be changed -->
+            <!-- 5 radiobuttons one can be pushed -->
 
         <!-- Header with person -->
         <!-- input field with add -->
@@ -27,22 +27,20 @@
         <!-- button that goes to naming and descriping the challenge -->
         <!-- the same button creates the forventninger -->
 
-    </div>     
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'EditForventninger',
+    name: 'AddForventninger',
     data() {
         return {
 
         }
     },
     methods: {
-        // onclick will update database even if the text havent been changed
-        },
-    created() {
-        // get the answers from database, snapshot
+        // on-click event that creates forventninger in the right spot 
+        // / if forventninger exists they have to be updated instead
     }
 }
 </script>

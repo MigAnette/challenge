@@ -10,13 +10,14 @@
 
         <!-- change theme to dark or light -->
 
-        <!-- log off -->
+        <!-- log off goes to a modal that ensures the decision-->
 
     </div>
 </template>
 
 <script>
 export default {
+    name: 'SettingProfile',
     data() {
         return {
 

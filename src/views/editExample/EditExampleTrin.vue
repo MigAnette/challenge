@@ -1,9 +1,9 @@
 <template>
     <div>
-        <!-- back arrow to the page create name and description -->
+         <!-- back arrow to the page edit example name and description -->
 
-        <!-- header with Lav din egen udfordring -->
-        <!-- header with Lav trin -->
+        <!-- header with Rediger din egen udfordring -->
+        <!-- header with Rediger trin -->
 
         <!-- Component for trin 1 -->
             <!-- button to go to next trin 1 -->
@@ -16,13 +16,12 @@
             <!-- button to go back to trin 2 -->
 
             <!-- button to go to finish making trin -->
-
     </div>
 </template>
 
 <script>
 export default {
-    name: 'CreateTrin',
+    name: 'EditExampleTrin',
     components: {},
     props: {},
     data() {
@@ -42,10 +41,9 @@ export default {
                 // opgave collection
                     // 3 opgaver
 
-        // onclick update button if already created
+        
 
     }
-
 }
 </script>
 

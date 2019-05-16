@@ -17,6 +17,7 @@
 
 <script>
 export default {
+    name: 'StepTask',
     data() {
         return {
 

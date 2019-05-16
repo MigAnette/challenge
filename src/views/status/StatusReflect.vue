@@ -26,6 +26,7 @@
 
 <script>
 export default {
+    name: 'StatusReflect',
     data() {
         return {
 
@@ -33,7 +34,8 @@ export default {
     },
     methods: {
         // onclick button create new document in database 
-    }                        
+    } 
+}                       
 </script>
 
 <style>

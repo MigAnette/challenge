@@ -9,7 +9,12 @@
 
 <script>
 export default {
-
+    name: 'SettingChallenge',
+    data() {
+        return {
+            
+        }
+    }
 }
 </script>
 

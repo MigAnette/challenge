@@ -32,6 +32,7 @@
 
 <script>
 export default {
+    name: 'CreateForventninger',
     data() {
         return {
 

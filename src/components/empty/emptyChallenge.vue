@@ -12,7 +12,12 @@
 
 <script>
 export default {
-
+    name: 'EmptyChallenge',
+    data() {
+        return {
+            
+        }
+    }
 }
 </script>
 

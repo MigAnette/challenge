@@ -1,9 +1,9 @@
 <template>
     <div>
-        <!-- back arrow to edit forventninger -->
+        <!-- back arrow to add forventninger -->
 
-        <!-- header with Rediger din egen udfordring -->
-        <!-- text that says Rediger din udfordrings navn og beskrivelse -->
+        <!-- header with Rediger Eksemplet -->
+        <!-- text that says Rediger eksemplets navn og beskrivelse -->
 
         <!-- header with Navn: -->
         <!-- Input field for the name with actual name -->
@@ -18,14 +18,14 @@
 
 <script>
 export default {
-    name: 'EditNameAndDescrip',
+    name: 'EditExampleNameAndDescrip',
     data() {
         return {
 
         }
     },
     methods: {
-        // onclick event on button that updates name and description
+        // create
     },
     created() {
         // get on name and description
