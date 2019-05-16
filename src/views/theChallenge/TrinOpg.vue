@@ -8,7 +8,7 @@
 
         <!-- header with trin and name -->
 
-        <!-- Boxes with the task number and name v-for and checkmarks, routers to their specific status updates -->
+        <!-- Boxes with the opgave number and name v-for and checkmarks, routers to their specific status updates -->
 
 
         <!-- button that goes to an overview of status -->
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'StepTask',
+    name: 'TrinOpg',
     data() {
         return {
 
