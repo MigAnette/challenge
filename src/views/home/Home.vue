@@ -4,6 +4,7 @@
 
         <!-- box with the steps made in a slider where in between
          is a checkmark. All steps are on the page but you can only see one at a time-->
+         <!-- checkmarks will be added if the task is done -->
 
         <!-- status bar(wait for last to make) -->
 
