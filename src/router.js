@@ -10,6 +10,7 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+// Main navigation links: 
     {
       // Home
       path: '/hjem',
@@ -29,6 +30,8 @@ export default new Router({
       name: 'Examples',
       component: Examples
     },
+
+// 
 
   ]
 })
