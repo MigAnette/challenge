@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar class="hidden-md-and-down">
+  <v-toolbar class="hidden-md-and-down" fixed>
     <v-spacer></v-spacer>
     <v-toolbar-items class="topNav">
       <v-btn color="teal" flat value="hjem" :to="{name: 'Home'}">
