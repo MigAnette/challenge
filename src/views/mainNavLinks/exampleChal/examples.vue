@@ -1,9 +1,12 @@
 <template>
     <div>
         <!-- back arrow going back to frontpage if not signed up -->
-
+        <back-arrow></back-arrow>
         <!-- Header with Udfordringer -->
-
+            <!-- H1 for desktop: -->
+            <h1 class="text-xs-center hidden-md-and-down desktopH1">Udfordringer</h1>
+            <!-- H1 for everything else: -->
+            <h1 class="text-xs-center hidden-md-and-up">Udfordringer</h1>
         <!-- box with challenge v-for have link to the specific challenge-->
             <!-- text Udfordring-Name -->
                 <!-- text Trin 1 -->
@@ -15,8 +18,13 @@
 </template>
 
 <script>
+import BackArrow from '@/components/navigation/BackArrow';
+
 export default {
     name: 'Examples',
+    components: {
+        BackArrow
+    },
     data() {
         return {
 
@@ -29,5 +37,7 @@ export default {
 </script>
 
 <style>
-
+.desktopH1 {
+    margin-top: 10vh;
+}
 </style>

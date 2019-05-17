@@ -1,10 +1,12 @@
 <template>
   <v-app>
+    <v-container>
     <top-nav-bar></top-nav-bar>
 
     <router-view/>
 
     <bottom-nav-bar></bottom-nav-bar>
+    </v-container>
   </v-app>
 </template>
 
