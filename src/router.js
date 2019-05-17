@@ -188,7 +188,7 @@ export default new Router({
 // the Challenge
     {
       // Challenge
-      path: '/:main/udfordringen/:udfordringen_id',
+      path: '/udfordringen/:udfordringen_id',
       name: 'Challenge',
       component: Challenge,
       // meta: {

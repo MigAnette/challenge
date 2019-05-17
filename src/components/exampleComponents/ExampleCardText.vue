@@ -22,7 +22,7 @@ export default {
   beforeMount() {
     db.collection("eksempler")
       .doc(this.udfordringen.id)
-      .collection("Trin")
+      .collection("Trin").orderBy("trinNr", "asc")
       .get()
       .then(snapshot => {
           snapshot.forEach(doc => {
@@ -31,6 +31,8 @@ export default {
               this.trin.push(trinet);
           })
       });
+
+      
   }
 };
 </script>

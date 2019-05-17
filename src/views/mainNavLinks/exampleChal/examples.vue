@@ -1,7 +1,9 @@
 <template>
   <div>
     <!-- back arrow going back to frontpage if not signed up -->
+    <v-toolbar flat color="transparent">
     <back-arrow></back-arrow>
+    </v-toolbar> 
     <!-- Header with Udfordringer -->
     <!-- H1 for desktop: -->
     <h1 class="text-xs-center hidden-md-and-down desktopH1">Udfordringer</h1>
@@ -9,25 +11,26 @@
     <h1 class="text-xs-center hidden-md-and-up">Udfordringer</h1>
     <!-- box with challenge v-for have link to the specific challenge-->
     <v-layout row wrap>
-      <v-flex xs-12 md-4 lg-1>
-          
-        <v-card elevation="2" class="mt-3" v-for="udfordring in udfordringer" :key="udfordring.id">
+      <v-flex xs-12 md-4 lg-1 v-for="udfordring in udfordringer" :key="udfordring.id">
+        <v-card
+          elevation="2"
+          class="mt-3"
+          :to="{name: 'Challenge', params:{udfordringen_id: udfordring.udfordringSlug}}"
+        >
           <!-- text Udfordring-Name -->
           <v-card-title class="headline">{{ udfordring.udfordringNavn}}</v-card-title>
-            <!-- Trin: -->
+          <!-- Trin: -->
           <example-card-text :udfordringen="udfordring"></example-card-text>
         </v-card>
-
       </v-flex>
     </v-layout>
-  
   </div>
 </template>
 
 <script>
 import db from "@/firebase/init";
 import BackArrow from "@/components/navigation/BackArrow";
-import ExampleCardText from '@/components/exampleComponents/ExampleCardText';
+import ExampleCardText from "@/components/exampleComponents/ExampleCardText";
 
 export default {
   name: "Examples",
@@ -37,7 +40,7 @@ export default {
   },
   data() {
     return {
-      udfordringer: [],
+      udfordringer: []
     };
   },
   created() {
@@ -50,9 +53,7 @@ export default {
           udfordring.id = doc.id;
           this.udfordringer.push(udfordring);
         });
-    
-    });
-
+      });
   }
 };
 </script>
