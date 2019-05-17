@@ -2,8 +2,6 @@
   <v-bottom-nav
     :active.sync="bottomNav"
     :value="true"
-    absolute
-    color="transparent"
     fixed
     class="hidden-lg-and-up"
   >

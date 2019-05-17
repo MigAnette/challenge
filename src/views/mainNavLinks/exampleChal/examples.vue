@@ -1,43 +1,64 @@
 <template>
-    <div>
-        <!-- back arrow going back to frontpage if not signed up -->
-        <back-arrow></back-arrow>
-        <!-- Header with Udfordringer -->
-            <!-- H1 for desktop: -->
-            <h1 class="text-xs-center hidden-md-and-down desktopH1">Udfordringer</h1>
-            <!-- H1 for everything else: -->
-            <h1 class="text-xs-center hidden-md-and-up">Udfordringer</h1>
-        <!-- box with challenge v-for have link to the specific challenge-->
-            <!-- text Udfordring-Name -->
-                <!-- text Trin 1 -->
-                <!-- text Trin 2 -->
-                <!-- text Trin 3 -->
+  <div>
+    <!-- back arrow going back to frontpage if not signed up -->
+    <back-arrow></back-arrow>
+    <!-- Header with Udfordringer -->
+    <!-- H1 for desktop: -->
+    <h1 class="text-xs-center hidden-md-and-down desktopH1">Udfordringer</h1>
+    <!-- H1 for everything else: -->
+    <h1 class="text-xs-center hidden-md-and-up">Udfordringer</h1>
+    <!-- box with challenge v-for have link to the specific challenge-->
+    <v-layout row wrap>
+      <v-flex xs-12 md-4 lg-1>
+          
+        <v-card elevation="2" class="mt-3" v-for="udfordring in udfordringer" :key="udfordring.id">
+          <!-- text Udfordring-Name -->
+          <v-card-title class="headline">{{ udfordring.udfordringNavn}}</v-card-title>
+            <!-- Trin: -->
+          <example-card-text :udfordringen="udfordring"></example-card-text>
+        </v-card>
 
-
-    </div>
+      </v-flex>
+    </v-layout>
+  
+  </div>
 </template>
 
 <script>
-import BackArrow from '@/components/navigation/BackArrow';
+import db from "@/firebase/init";
+import BackArrow from "@/components/navigation/BackArrow";
+import ExampleCardText from '@/components/exampleComponents/ExampleCardText';
 
 export default {
-    name: 'Examples',
-    components: {
-        BackArrow
-    },
-    data() {
-        return {
+  name: "Examples",
+  components: {
+    BackArrow,
+    ExampleCardText
+  },
+  data() {
+    return {
+      udfordringer: [],
+    };
+  },
+  created() {
+    // get udfordring with trin from eksempler
+    db.collection("eksempler")
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          let udfordring = doc.data();
+          udfordring.id = doc.id;
+          this.udfordringer.push(udfordring);
+        });
+    
+    });
 
-        }
-    },
-    created() {
-        // get udfordring with trin from eksempler
-    }
-}
+  }
+};
 </script>
 
 <style>
 .desktopH1 {
-    margin-top: 10vh;
+  margin-top: 10vh;
 }
 </style>
