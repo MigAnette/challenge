@@ -29,9 +29,10 @@
     <v-btn v-if="false"></v-btn>
 
     <!-- Boxes with the different steps v-for -->
- 
-        <challenge-card:udfordringen="udfordring"></challenge-card>
     
+    <challenge-card :udfordringen="udfordring"></challenge-card>
+ 
+
     <!-- Trin -->
     <!-- opgave 1 -->
     <!-- opgave 2 -->
@@ -57,7 +58,7 @@ export default {
   },
   data() {
     return {
-      udfordring: [],
+      udfordring: []
     };
   },
   created() {
@@ -65,6 +66,7 @@ export default {
     let ref = db
       .collection("eksempler")
       .where("udfordringSlug", "==", this.$route.params.udfordringen_id);
+    
     ref.get().then(snapshot => {
       snapshot.forEach(doc => {
         this.udfordring = doc.data();
@@ -76,8 +78,7 @@ export default {
     // description
     // get trin
     // opgaver
-  },
-  
+  }
 };
 </script>
 

@@ -1,8 +1,9 @@
 <template>
-  <v-layout>
-    <v-flex v-for="trinet in trin" :key="trinet.id">
+  <v-layout row wrap>
+    <v-flex xs12 md4 lg1 v-for="trinet in trin" :key="trinet">
       <v-card>
-        <v-card-title>{{trin.trinNavn}}</v-card-title>
+        <v-card-title>Trin {{trinet.trinNr}}:</v-card-title>
+        <challenge-card-opg :trinet="trinet" :udfordringen="udfordringen"></challenge-card-opg>
       </v-card>
     </v-flex>
   </v-layout>
@@ -10,9 +11,14 @@
 
 <script>
 import db from "@/firebase/init";
+import ChallengeCardOpg from "@/components/challengeComponents/ChallengeCardOpg";
+
 export default {
   name: "ChallengeCard",
   props: ["udfordringen"],
+  components: {
+    ChallengeCardOpg
+  },
   data() {
     return {
       trin: []

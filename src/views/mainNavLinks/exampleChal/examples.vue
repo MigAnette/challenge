@@ -11,7 +11,7 @@
     <h1 class="text-xs-center hidden-md-and-up">Udfordringer</h1>
     <!-- box with challenge v-for have link to the specific challenge-->
     <v-layout row wrap>
-      <v-flex xs-12 md-4 lg-1 v-for="udfordring in udfordringer" :key="udfordring.id">
+      <v-flex xs12 md4 lg1 v-for="udfordring in udfordringer" :key="udfordring.id">
         <v-card
           elevation="2"
           class="mt-3"
