@@ -44,7 +44,7 @@ export default new Router({
 // Main navigation links: 
     {
       // Home
-      path: '/hjem/:challenge',
+      path: '/hjem',
       name: 'Home',
       component: Home,
       // meta: {
@@ -53,7 +53,7 @@ export default new Router({
     },
     {
       // Profile
-      path: '/profil/:user',
+      path: '/profil',
       // has to go to user profile page
       name: 'Profile',
       component: Profile,
