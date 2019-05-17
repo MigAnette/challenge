@@ -1,8 +1,10 @@
 <template>
   <v-app>
+    <top-nav-bar></top-nav-bar>
+
     <router-view/>
 
-      <bottom-nav-bar></bottom-nav-bar>
+    <bottom-nav-bar></bottom-nav-bar>
   </v-app>
 </template>
 

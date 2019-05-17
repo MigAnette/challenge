@@ -1,52 +1,32 @@
 <template>
-    
-    <v-bottom-nav
-      :active.sync="bottomNav"
-      :value="true"
-      absolute
-      color="transparent"
-      fixed
-      class="hidden-lg-and-up"
-    >
-      <v-btn
-        color="teal"
-        flat
-        value="hjem"
-        :to="{name: 'Home'}"
-      >
-        <span>Hjem</span>
-        <v-icon>home</v-icon>
-      </v-btn>
+  <v-bottom-nav
+    :active.sync="bottomNav"
+    :value="true"
+    absolute
+    color="transparent"
+    fixed
+    class="hidden-lg-and-up"
+  >
+    <v-btn color="teal" flat value="hjem" :to="{name: 'Home'}">
+      <span class="hidden-sm-and-down">Hjem</span>
+      <v-icon>home</v-icon>
+    </v-btn>
 
-      <v-btn
-        color="teal"
-        flat
-        value="profil"
-        :to="{name: 'Profile'}"
-      >
-        <span>Profil</span>
-        <v-icon>person</v-icon>
-      </v-btn>
+    <v-btn color="teal" flat value="profil" :to="{name: 'Profile'}">
+      <span class="hidden-sm-and-down">Profil</span>
+      <v-icon>person</v-icon>
+    </v-btn>
 
-      <v-btn
-        color="teal"
-        flat
-        value="udfordringer"
-        :to="{name: 'Examples'}"
-      >
-        <span>Udfordringer</span>
-        <v-icon>terrain</v-icon>
-      </v-btn>
-    </v-bottom-nav>
-
+    <v-btn color="teal" flat value="udfordringer" :to="{name: 'Examples'}">
+      <span class="hidden-sm-and-down">Udfordringer</span>
+      <v-icon>terrain</v-icon>
+    </v-btn>
+  </v-bottom-nav>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
