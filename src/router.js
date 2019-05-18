@@ -92,7 +92,7 @@ export default new Router({
 // editExample
     {
       // AddForventninger
-      path:'/redigerEksempel/forventninger',
+      path:'/:udfordringen_id/redigerEksempel/forventninger',
       name: 'AddForventninger',
       component: AddForventninger,
       // meta: {
@@ -101,7 +101,7 @@ export default new Router({
     },
     {
       // EditExampleNameAndDescrip
-      path:'/redigerEksempel/navn&beskrivelse',
+      path:'/:udfordringen_id/redigerEksempel/navn&beskrivelse',
       name: 'EditExampleNameAndDescrip',
       component: EditExampleNameAndDescrip,
       // meta: {
@@ -110,7 +110,7 @@ export default new Router({
     },
     {
       // EditExampleStatusPlan
-      path: '/redigerEksempel/statusPlan',
+      path: '/:udfordringen_id/redigerEksempel/statusPlan',
       name: 'EditExampleStatusPlan',
       component: EditExampleStatusPlan,
       // meta: {
@@ -119,7 +119,7 @@ export default new Router({
     },
     {
       // EditExampleTrin
-      path: 'redigerEksempel/trin/:trin_id',
+      path: '/:udfordringen_id/redigerEksempel/trin/:trin_id',
       name: 'EditExampleTrin',
       component: EditExampleTrin,
       // meta: {
@@ -188,7 +188,7 @@ export default new Router({
 // the Challenge
     {
       // Challenge
-      path: '/udfordringen/:udfordringen_id',
+      path: '/:main_id/udfordringen/:udfordringen_id',
       name: 'Challenge',
       component: Challenge,
       // meta: {

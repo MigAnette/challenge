@@ -1,9 +1,9 @@
 <template>
   <v-layout row wrap>
-    <v-flex xs12 md4 lg1 v-for="trinet in trin" :key="trinet">
-      <v-card>
-        <v-card-title>Trin {{trinet.trinNr}}:</v-card-title>
-        <challenge-card-opg :trinet="trinet" :udfordringen="udfordringen"></challenge-card-opg>
+    <v-flex xs12 md4 lg4 v-for="trinet in trin" :key="trinet">
+      <v-card class="py-3 ma-3">
+        <v-card-title class="title pb-0 pt-1">Trin {{trinet.trinNr}}:</v-card-title>
+        <challenge-card-opg :trinene="trinet" :udfordring="udfordringen"></challenge-card-opg>
       </v-card>
     </v-flex>
   </v-layout>

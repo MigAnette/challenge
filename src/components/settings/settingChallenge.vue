@@ -24,7 +24,8 @@ export default {
   name: "SettingChallenge",
   data() {
     return {
-      menu: false
+      menu: false,
+      
     };
   }
 };

@@ -1,8 +1,8 @@
 <template>
-  <div>
-      <div v-for="opgave in opgaver" :key="opgave">
-          <span>Opgave {{opgave.opgaveNr}}: </span>
-          <p> {{opgave.opgaveNavn}} </p>
+  <div class="mx-3 pt-2">
+      <div v-for="opgave in opgaver" :key="opgave" class=" pa-auto">
+          <span class="pt-1 subheading">Opgave {{opgave.opgaveNr}}: </span>
+          <p class="pt-0 body-2"> {{opgave.opgaveNavn}} </p>
       </div>
   </div>
 </template>
@@ -12,7 +12,7 @@ import db from "@/firebase/init";
 
 export default {
   name: "ChallengeCardOpg",
-  props: ["trinet", "udfordringen"],
+  props: ["trinene", "udfordring"],
   data() {
     return {
       opgaver: []
@@ -20,9 +20,9 @@ export default {
   },
   beforeMount() {
     db.collection("eksempler")
-      .doc(this.udfordringen.id)
+      .doc(this.udfordring.id)
       .collection("Trin")
-      .doc(this.trinet.id)
+      .doc(this.trinene.id)
       .collection("opgaver")
       .orderBy("opgaveNr", "asc")
       .get()

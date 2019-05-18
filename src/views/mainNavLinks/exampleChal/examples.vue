@@ -2,20 +2,20 @@
   <div>
     <!-- back arrow going back to frontpage if not signed up -->
     <v-toolbar flat color="transparent">
-    <back-arrow></back-arrow>
-    </v-toolbar> 
+      <back-arrow></back-arrow>
+    </v-toolbar>
     <!-- Header with Udfordringer -->
     <!-- H1 for desktop: -->
     <h1 class="text-xs-center hidden-md-and-down desktopH1">Udfordringer</h1>
     <!-- H1 for everything else: -->
-    <h1 class="text-xs-center hidden-md-and-up">Udfordringer</h1>
+    <h1 class="text-xs-center hidden-lg-and-up">Udfordringer</h1>
     <!-- box with challenge v-for have link to the specific challenge-->
     <v-layout row wrap>
-      <v-flex xs12 md4 lg1 v-for="udfordring in udfordringer" :key="udfordring.id">
+      <v-flex xs12 sm6 md6 lg4 v-for="udfordring in udfordringer" :key="udfordring.id">
         <v-card
           elevation="2"
-          class="mt-3"
-          :to="{name: 'Challenge', params:{udfordringen_id: udfordring.udfordringSlug}}"
+          class="ma-3"
+          :to="{name: 'Challenge', params:{udfordringen_id: udfordring.udfordringSlug, main_id: 'eksempler'}}"
         >
           <!-- text Udfordring-Name -->
           <v-card-title class="headline">{{ udfordring.udfordringNavn}}</v-card-title>
