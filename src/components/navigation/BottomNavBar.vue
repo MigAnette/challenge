@@ -4,6 +4,7 @@
     :value="true"
     fixed
     class="hidden-lg-and-up"
+    
   >
     <v-btn color="teal" flat value="hjem" :to="{name: 'Home'}">
       <span class="hidden-sm-and-down">Hjem</span>
@@ -23,7 +24,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'BottomNavBar',
+  data() {
+    return {
+     
+    }
+  }
+};
 </script>
 
 <style>

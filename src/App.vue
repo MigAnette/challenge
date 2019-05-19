@@ -5,7 +5,7 @@
 
     <router-view/>
 
-    <bottom-nav-bar></bottom-nav-bar>
+    <bottom-nav-bar v-if="notFrontAndLogin"></bottom-nav-bar>
     </v-container>
   </v-app>
 </template>
@@ -22,8 +22,19 @@ export default {
   },
   data () {
     return {
-      //
+      notFrontAndLogin: true
     }
+  },
+  methods: {
+    navNotOnPages() {
+      if(this.$route.path == '/forside' || this.$route.path == '/login') {
+        this.notFrontAndLogin = false;
+      }
+  
+    }
+  },
+  created() {
+    this.navNotOnPages();
   }
 }
 </script>

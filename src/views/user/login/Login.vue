@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- arrow button back to frontPage -->
-
+        <back-arrow></back-arrow>
         <!-- Text saying Login -->
         <!-- Input field for Email v-model="Email" -->
         <!-- Input field for password v-model="Password" -->
@@ -11,8 +11,13 @@
 </template>
 
 <script>
+import BackArrow from "@/components/navigation/BackArrow";
+
 export default {
     name: 'Login',
+    components: {
+        BackArrow
+    },
     data() {
         return {
             // Email: null

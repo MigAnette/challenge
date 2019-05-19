@@ -71,7 +71,7 @@ export default new Router({
 // Frontpage new user:
     {
       // Frontpage
-      path: '/',
+      path: '/forside',
       name: 'FrontPage',
       component: FrontPage
     },

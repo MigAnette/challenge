@@ -35,13 +35,13 @@
     <challenge-card :udfordringen="udfordring"></challenge-card>
 
     <!-- button to start udfordring -->
-    <div class="challengeContainer">
+    <div class="btnContainer">
       <v-btn :to=" {name: 'AddForventninger', params: {udfordringen_id: udfordring.udfordringSlug}} " color="teal white--text" ripple class="pt-6 startChalBtn">
         <span>Start Udfordring</span>
       </v-btn>
     </div>
 
-    <div class="navProtector"></div>
+    
   </div>
 </template>
 
@@ -94,9 +94,10 @@ export default {
 </script>
 
 <style>
-.challengeContainer {
+.challengeContainer, .btnContainer {
   display: grid;
 }
+
 
 .startChalBtn {
   justify-self: center;
