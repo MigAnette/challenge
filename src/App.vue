@@ -26,12 +26,12 @@ export default {
     }
   },
   methods: {
-    navNotOnPages() {
-      if(this.$route.path == '/' || this.$route.path == '/login') {
-        this.notFrontAndLogin = false;
-      }
+    // navNotOnPages() {
+    //   if(this.$route.path == '/' || this.$route.path == '/login') {
+    //     this.notFrontAndLogin = false;
+    //   }
   
-    }
+    // }
   },
   created() {
     this.navNotOnPages();

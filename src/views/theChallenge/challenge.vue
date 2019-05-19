@@ -35,8 +35,14 @@
     <challenge-card :udfordringen="udfordring"></challenge-card>
 
     <!-- button to start udfordring -->
-    <div class="btnContainer">
+    <div v-if="false" class="btnContainer">
       <v-btn :to=" {name: 'AddForventninger', params: {udfordringen_id: udfordring.udfordringSlug}} " color="teal white--text" ripple class="pt-6 startChalBtn">
+        <span>Start Udfordring</span>
+      </v-btn>
+    </div>
+    
+    <div v-if="true" class="btnContainer">
+      <v-btn :to=" {name: 'SignUp'} " color="teal white--text" ripple class="pt-6 startChalBtn">
         <span>Start Udfordring</span>
       </v-btn>
     </div>
@@ -71,6 +77,7 @@ export default {
         this.notExamples = false;
       }
     }
+
   },
   created() {
     // get udfordringen

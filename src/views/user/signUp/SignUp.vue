@@ -15,11 +15,19 @@
 
           <!-- Kodeord: -->
           <!-- Input for Kodeord -->
-          <v-text-field v-model="kodeord" :counter="6" :rules="kodeordRules" label="Kodeord:" required></v-text-field>
+          <v-text-field
+            v-model="password"
+            :counter="6"
+            :rules="kodeordRules"
+            label="Kodeord:"
+            required
+          ></v-text-field>
 
           <!-- Navn: -->
           <!-- Input for Navn -->
           <v-text-field v-model="navn" label="Brugernavn:" :rules="navnRules" required></v-text-field>
+
+          <p v-if="feedback">{{feedback}}</p>
 
           <!-- Button with Tilmeld/submit opens the site you wanted to go to-->
           <v-btn @click="submit" :loading="loading">Tilmeld</v-btn>
@@ -31,10 +39,9 @@
 
 <script>
 import db from "@/firebase/init";
-import firebase from 'firebase/app' 
-require('firebase/auth')
+import firebase from "firebase/app";
+require("firebase/auth");
 import BackArrow from "@/components/navigation/BackArrow";
-
 
 export default {
   name: "SignUp",
@@ -43,27 +50,46 @@ export default {
   },
   data() {
     return {
+      feedback: null,
       email: null,
-      kodeord: null,
+      password: null,
       navn: null,
       emailRules: [
         v => !!v || "Email er påkrævet",
         v => /.+@.+/.test(v) || "Email skal være valid"
       ],
       kodeordRules: [
-          v => !!v || "Kodeord er påkrævet",
-          v => v.length >= 6 || 'Kodeordet skal have mindst 6 karaktere'
+        v => !!v || "Kodeord er påkrævet",
+        v => v.length >= 6 || "Kodeordet skal have mindst 6 karaktere"
       ],
-      navnRules: [
-          v => !!v || "Navn er påkrævet"
-      ]
-     
+      navnRules: [v => !!v || "Navn er påkrævet"]
     };
   },
   methods: {
     // on sumbit add user to authentication and add to firestore database with uid
     submit() {
-        
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(cred => {
+          db.collection("users")
+            .doc(cred.user.uid)
+            .set({
+              email: this.email,
+              brugerNavn: this.navn
+            });
+        })
+        .then(() => {
+            if(this.$router.go(-1) == '/eksempler') {
+                this.$router.push({name: 'AddForventninger'});
+            } else {
+                this.$route.go(-1);
+            }
+        })
+        .catch(err => {
+          console.log(err);
+          this.feedback = err.message;
+        });
     }
   }
 };

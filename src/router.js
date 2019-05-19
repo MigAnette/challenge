@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import firebase from 'firebase/app' 
+require('firebase/auth')
 // Main navigation links:
 import Home from '@/views/mainNavLinks/home/Home';
 import Profile from '@/views/mainNavLinks/profile/Profile';
@@ -37,7 +39,7 @@ import EditStatusPlan from '@/views/editChallenge/EditStatusPlan';
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -47,9 +49,9 @@ export default new Router({
       path: '/hjem',
       name: 'Home',
       component: Home,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Profile
@@ -57,9 +59,9 @@ export default new Router({
       // has to go to user profile page
       name: 'Profile',
       component: Profile,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Examples
@@ -276,22 +278,22 @@ export default new Router({
 });
 
 // Comes from geo-ninjas router:
-// router.beforeEach((to, from, next) => {
-//   //check to see if route requires auth
-//   if(to.matched.some(rec => rec.meta.requiresAuth)){
-//     //check auth state of user
-//     let user = firebase.auth().currentUser
-//     if(user) {
-//       //user signed in, proceed to route
-//       next()
-//     } else {
-//       //no user signed up, redirect to signUp
-//       next({name: 'SignUp'});
-//     }
-//   }else {
-//     next()
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  //check to see if route requires auth
+  if(to.matched.some(rec => rec.meta.requiresAuth)){
+    //check auth state of user
+    let user = firebase.auth().currentUser
+    if(user) {
+      //user signed in, proceed to route
+      next()
+    } else {
+      //no user signed up, redirect to signUp
+      next({name: 'Login'});
+    }
+  }else {
+    next()
+  }
+});
 
-// export default router
+export default router
 
