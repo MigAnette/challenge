@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     navNotOnPages() {
-      if(this.$route.path == '/forside' || this.$route.path == '/login') {
+      if(this.$route.path == '/' || this.$route.path == '/login') {
         this.notFrontAndLogin = false;
       }
   

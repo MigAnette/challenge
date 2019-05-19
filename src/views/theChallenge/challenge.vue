@@ -41,6 +41,7 @@
       </v-btn>
     </div>
 
+<div class="navProtector"></div>
     
   </div>
 </template>

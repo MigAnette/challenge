@@ -71,13 +71,13 @@ export default new Router({
 // Frontpage new user:
     {
       // Frontpage
-      path: '/forside',
+      path: '/',
       name: 'FrontPage',
       component: FrontPage
     },
     {
       // SignUp
-      path: '/:main/tilmeld',
+      path: '/tilmeld',
       name: 'SignUp',
       component: SignUp
     },
