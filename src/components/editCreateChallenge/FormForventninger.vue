@@ -1,0 +1,89 @@
+<template>
+  <v-form>
+    <!-- Question -->
+    <h4>Hvad kan du få ud af udfordringen?</h4>
+    <!-- textbox for the answer -->
+    <v-textarea v-model="question1" auto-grow box color="teal" label="Skriv dit svar her" rows="1"></v-textarea>
+
+    <!-- Question -->
+    <h4>Hvad bekymrer dig mest ved at skulle udføre udfordringen?</h4>
+    <!-- textbox for the answer -->
+    <v-textarea v-model="question2" auto-grow box label="Skriv dit svar her" color="teal" rows="1"></v-textarea>
+
+    <!-- Question -->
+    <h4>Hvor nervøs er du for at udføre denne udfordring?</h4>
+    <!-- 5 radiobuttons one can be pushed -->
+    <v-layout row wrap>
+      <v-flex xs12>
+        <v-layout>
+          <p>Lidt</p>
+          <p>Mest</p>
+        </v-layout>
+      </v-flex>
+
+      <v-flex xs12>
+        <v-radio-group v-model="scaleQuestion1" :mandatory="true" row>
+          <v-radio value="radio-1"></v-radio>
+          <v-radio value="radio-2"></v-radio>
+          <v-radio value="radio-3"></v-radio>
+          <v-radio value="radio-4"></v-radio>
+          <v-radio value="radio-5"></v-radio>
+        </v-radio-group>
+      </v-flex>
+    </v-layout>
+
+    <!-- Question -->
+    <h4>Hvor svær tror du denne udfordring bliver?</h4>
+    <!-- 5 radiobuttons one can be pushed -->
+    <v-layout row wrap>
+      <v-flex xs12>
+        <v-layout>
+          <p>Lidt</p>
+          <p>Mest</p>
+        </v-layout>
+      </v-flex>
+
+      <v-flex xs12>
+        <v-radio-group v-model="scaleQuestion2" :mandatory="true" row>
+          <v-radio value="radio-1"></v-radio>
+          <v-radio value="radio-2"></v-radio>
+          <v-radio value="radio-3"></v-radio>
+          <v-radio value="radio-4"></v-radio>
+          <v-radio value="radio-5"></v-radio>
+        </v-radio-group>
+      </v-flex>
+    </v-layout>
+    <!-- Header with person -->
+    <h4>Skriv de personer der kan hjælpe dig:</h4>
+    <!-- input field with add -->
+    <v-text-field v-model="personer.navn"></v-text-field><v-btn>Tilføj</v-btn>
+    <!-- Added people can be seen underneath -->
+    <div v-for="person in personer" :key="person">
+        <h5> {{person.navn}} </h5>
+    </div>
+    <!-- Added people can be removed by clicking on them -->
+    <!-- 5 people max -->
+
+    <!-- button that goes to naming and descriping the challenge -->
+  </v-form>
+</template>
+
+<script>
+export default {
+  name: "FormForventninger",
+  data() {
+    return {
+      question1: null,
+      question2: null,
+      scaleQuestion1: null,
+      scaleQuestion2: null,
+      personer: [
+          {navn: '', id: 1}
+      ]
+    };
+  }
+};
+</script>
+
+<style>
+</style>
