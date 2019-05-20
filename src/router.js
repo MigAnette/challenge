@@ -46,16 +46,16 @@ const router = new Router({
 // Main navigation links: 
     {
       // Home
-      path: '/hjem/:user_id',
+      path: '/hjem',
       name: 'Home',
       component: Home,
-      meta: {
-        requiresAuth: true
-      }
+      // meta: {
+      //   requiresAuth: true
+      // }
     },
     {
       // Profile
-      path: '/profil/:user_id',
+      path: '/profil',
       // has to go to user profile page
       name: 'Profile',
       component: Profile,

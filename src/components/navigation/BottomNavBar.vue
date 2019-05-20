@@ -1,11 +1,11 @@
 <template>
   <v-bottom-nav :active.sync="bottomNav" :value="true" fixed class="hidden-lg-and-up">
-    <v-btn color="teal" flat value="hjem" @click="homeLogin()">
+    <v-btn color="teal" flat value="hjem" :to="{name: 'Home'}">
       <span class="hidden-sm-and-down">Hjem</span>
       <v-icon>home</v-icon>
     </v-btn>
 
-    <v-btn color="teal" flat value="profil" @click="profileLogin()">
+    <v-btn color="teal" flat value="profil" :to="{name: 'Profile'}">
       <span class="hidden-sm-and-down">Profil</span>
       <v-icon>person</v-icon>
     </v-btn>
@@ -29,24 +29,12 @@ export default {
     }
   },
   methods: {
-    homeLogin() {
-      if(this.user) {
-        this.$router.push({name: 'Home', params: {user_id: this.user.uid}});
-      } else {
-        this.$router.push({name: 'SignUp', params: {main: 'hjem'}});
-      }
-    },
-    profileLogin() {
-      if(this.user) {
-        this.$router.push({name: 'Profile', params: {user_id: this.user.uid}});
-      } else {
-        this.$router.push({name: 'SignUp', params: {main: 'profil'}});
-      }
-    }
+   
   },
   created() {
     this.user = firebase.auth().currentUser;
-  }
+  },
+ 
 };
 </script>
 
