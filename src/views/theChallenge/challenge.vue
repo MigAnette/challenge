@@ -35,17 +35,12 @@
     <challenge-card :udfordringen="udfordring"></challenge-card>
 
     <!-- button to start udfordring -->
-    <div v-if="false" class="btnContainer">
-      <v-btn :to=" {name: 'AddForventninger', params: {udfordringen_id: udfordring.udfordringSlug}} " color="teal white--text" ripple class="pt-6 startChalBtn">
+    <div  class="btnContainer">
+      <v-btn @click="signedUp()" color="teal white--text" ripple class="pt-6 startChalBtn">
         <span>Start Udfordring</span>
       </v-btn>
     </div>
     
-    <div v-if="true" class="btnContainer">
-      <v-btn :to=" {name: 'SignUp'} " color="teal white--text" ripple class="pt-6 startChalBtn">
-        <span>Start Udfordring</span>
-      </v-btn>
-    </div>
 
 <div class="navProtector"></div>
     
@@ -54,6 +49,8 @@
 
 <script>
 import db from "@/firebase/init";
+import firebase from 'firebase/app' 
+require('firebase/auth')
 import BackArrow from "@/components/navigation/BackArrow";
 import SettingChallenge from "@/components/settings/SettingChallenge";
 import ChallengeCard from "@/components/challengeComponents/ChallengeCard";
@@ -68,13 +65,20 @@ export default {
   data() {
     return {
       udfordring: null,
-      notExamples: true
+      user: null
     };
   },
   methods: {
     settingOnExample() {
       if (this.$route.params.main_id == "eksempler") {
         this.notExamples = false;
+      }
+    },
+    signedUp() {
+      if(this.user) {
+        this.$router.push({name: 'AddForventninger', params: {user_id: this.user.uid, udfordringen_id: this.udfordring.udfordringSlug}});
+      } else {
+         this.$router.push({name: 'SignUp', params: {main: 'eksempler'}});
       }
     }
 
@@ -91,6 +95,8 @@ export default {
         this.udfordring.id = doc.id;
       });
     });
+
+    this.user = firebase.auth().currentUser;
 
     this.settingOnExample();
     // name

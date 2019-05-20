@@ -46,7 +46,7 @@ const router = new Router({
 // Main navigation links: 
     {
       // Home
-      path: '/hjem',
+      path: '/hjem/:user_id',
       name: 'Home',
       component: Home,
       meta: {
@@ -55,13 +55,13 @@ const router = new Router({
     },
     {
       // Profile
-      path: '/profil',
+      path: '/profil/:user_id',
       // has to go to user profile page
       name: 'Profile',
       component: Profile,
-      meta: {
-        requiresAuth: true
-      }
+      // meta: {
+      //   requiresAuth: true
+      // }
     },
     {
       // Examples
@@ -79,7 +79,7 @@ const router = new Router({
     },
     {
       // SignUp
-      path: '/tilmeld',
+      path: '/:main/tilmeld',
       name: 'SignUp',
       component: SignUp
     },
@@ -94,7 +94,7 @@ const router = new Router({
 // editExample
     {
       // AddForventninger
-      path:'/:udfordringen_id/redigerEksempel/forventninger',
+      path:'/:user_id/:udfordringen_id/redigerEksempel/forventninger',
       name: 'AddForventninger',
       component: AddForventninger,
       // meta: {

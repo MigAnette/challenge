@@ -64,7 +64,7 @@ export default {
           .auth()
           .signInWithEmailAndPassword(this.email, this.password)
           .then(cred => {
-              this.$router.push({name: 'Home'});
+              this.$router.push({name: 'Home', params: {user_id: cred.user.uid}});
           }).catch(err => {
               this.feedback = err.message;
           });
