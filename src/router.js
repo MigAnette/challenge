@@ -94,7 +94,7 @@ const router = new Router({
 // editExample
     {
       // AddForventninger
-      path:'/:user_id/:udfordringen_id/redigerEksempel/forventninger',
+      path:'/:udfordringen_id/redigerEksempel/forventninger',
       name: 'AddForventninger',
       component: AddForventninger,
       // meta: {
@@ -121,7 +121,7 @@ const router = new Router({
     },
     {
       // EditExampleTrin
-      path: '/:udfordringen_id/redigerEksempel/trin/:trin_id',
+      path: '/:udfordringen_id/redigerEksempel/trin',
       name: 'EditExampleTrin',
       component: EditExampleTrin,
       // meta: {

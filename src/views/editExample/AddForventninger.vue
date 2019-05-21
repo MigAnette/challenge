@@ -23,6 +23,7 @@
 
     <form-forventninger></form-forventninger>
     <!-- the same button creates the forventninger -->
+    <v-btn :to="{name: 'EditExampleNameAndDescrip', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn>
 
     <div class="navProtector"></div>
   </div>

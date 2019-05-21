@@ -1,7 +1,7 @@
 <template>
     <div>
          <!-- back arrow to the page edit example name and description -->
-
+        <back-arrow></back-arrow>
         <!-- header with Rediger din egen udfordring -->
         <!-- header with Rediger trin -->
 
@@ -20,9 +20,12 @@
 </template>
 
 <script>
+import BackArrow from "@/components/navigation/BackArrow";
 export default {
     name: 'EditExampleTrin',
-    components: {},
+    components: {
+        BackArrow,
+    },
     props: {},
     data() {
         return {
