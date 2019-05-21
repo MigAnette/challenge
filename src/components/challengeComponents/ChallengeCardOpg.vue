@@ -1,7 +1,7 @@
 <template>
   <div class="mx-3 pt-2">
       <div v-for="opgave in opgaver" :key="opgave" class=" pa-auto">
-          <span class="pt-1 subheading">Opgave {{opgave.opgaveNr}}: </span>
+          <span class="pt-1 subheading">Opgave {{opgave.opgNr}}: </span>
           <p class="pt-0 body-2"> {{opgave.opgaveNavn}} </p>
       </div>
   </div>
@@ -24,7 +24,7 @@ export default {
       .collection("Trin")
       .doc(this.trinene.id)
       .collection("opgaver")
-      .orderBy("opgaveNr", "asc")
+      .orderBy("opgNr", "asc")
       .get()
       .then(snapshot => {
         snapshot.forEach(doc => {

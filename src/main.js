@@ -5,6 +5,9 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+export const editExampleBus = new Vue();
+export const createChallengeBus = new Vue();
+export const editChallengeBus = new Vue();
 
 
 new Vue({

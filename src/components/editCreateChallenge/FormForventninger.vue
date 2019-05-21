@@ -69,6 +69,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: "FormForventninger",
   data() {
@@ -77,10 +79,11 @@ export default {
       question2: null,
       scaleQuestion1: null,
       scaleQuestion2: null,
-      personer: [
-          {navn: '', id: 1}
-      ]
+      personer: []
     };
+  }, 
+  methods: {
+    
   }
 };
 </script>

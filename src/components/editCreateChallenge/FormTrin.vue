@@ -2,13 +2,13 @@
   <v-form>
     <v-flex mt-5>
       <h2>Trin {{thisTrin.trinNr}}:</h2>
-      <v-text-field :label='"Navn på trin " + thisTrin.trinNr'></v-text-field>
+      <v-text-field :label='"Navn på trin " + thisTrin.trinNr' v-model="thisTrin.trinNavn "></v-text-field>
     </v-flex>
 
     
     <v-flex mt-3 v-for="opgave in opgaver" :key="opgave">
       <h4>Opgave {{opgave.opgNr}} </h4>
-      <v-text-field label="Navn på opgave"></v-text-field>
+      <v-textarea auto-grow required outline label="Navn på opgave" v-model="opgave.opgaveNavn"></v-textarea>
       <h5>Vælg person en der kan hjælpe med opgaven:</h5>
       <v-select label="Person" :items="items" v-model="select.person_id[opgave.opgNr]"></v-select>
     </v-flex>
