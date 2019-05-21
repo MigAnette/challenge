@@ -27,6 +27,7 @@
       <form-trin v-for="trinet in trin" :key="trinet" :thisTrin="trinet" :udfordringen="udfordring"></form-trin>
     </v-container>
     <!-- button to go to finish making trin -->
+    <v-btn :to="{name: 'EditExampleStatusPlan', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn>
     <div class="navProtector"></div>
   </div>
 </template>

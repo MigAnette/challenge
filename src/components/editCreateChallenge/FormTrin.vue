@@ -5,19 +5,33 @@
       <v-text-field :label='"Navn på trin " + thisTrin.trinNr'></v-text-field>
     </v-flex>
 
-   
+    
+    <v-flex mt-3 v-for="opgave in opgaver" :key="opgave">
+      <h4>Opgave {{opgave.opgNr}} </h4>
+      <v-text-field label="Navn på opgave"></v-text-field>
+      <h5>Vælg person en der kan hjælpe med opgaven:</h5>
+      <v-select label="Person" :items="items" v-model="select.person_id[opgave.opgNr]"></v-select>
+    </v-flex>
+    
   </v-form>
 </template>
 
 <script>
 import db from "@/firebase/init";
 
+
 export default {
   name: "FormTrin",
+  props: ["thisTrin", "udfordringen"],
   data() {
     return {
       items: ["Brian", "Klaus", "Trine", "Ditte", "Martin"],
-      opgaver: []
+      opgaver: [],
+      select: {
+          person_id: []
+      } 
+    
+      
     };
   },
   beforeMount() {
@@ -25,7 +39,8 @@ export default {
       .doc(this.udfordringen.id)
       .collection("Trin")
       .doc(this.thisTrin.id)
-      .collection("opgaver").orderBy("opgNr", "asc")
+      .collection("opgaver")
+      .orderBy("opgNr", "asc")
       .get()
       .then(snapshot => {
         snapshot.forEach(doc => {
