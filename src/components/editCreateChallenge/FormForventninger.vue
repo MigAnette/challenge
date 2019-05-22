@@ -1,5 +1,5 @@
 <template>
-  <v-form>
+  <v-form input>
     <!-- Question -->
     <h4>Hvad kan du få ud af udfordringen?</h4>
     <!-- textbox for the answer -->
@@ -29,6 +29,8 @@
           <v-radio value="radio-4"></v-radio>
           <v-radio value="radio-5"></v-radio>
         </v-radio-group>
+
+        
       </v-flex>
     </v-layout>
 
@@ -56,7 +58,9 @@
     <!-- Header with person -->
     <h4>Skriv de personer der kan hjælpe dig:</h4>
     <!-- input field with add -->
-    <v-text-field v-model="personer.navn"></v-text-field><v-btn>Tilføj</v-btn>
+    <v-text-field v-model="personer.navn"></v-text-field>
+    
+    <v-btn>Tilføj</v-btn>
     <!-- Added people can be seen underneath -->
     <div v-for="person in personer" :key="person">
         <h5> {{person.navn}} </h5>
@@ -65,11 +69,12 @@
     <!-- 5 people max -->
 
     <!-- button that goes to naming and descriping the challenge -->
+    <v-btn @click="submit">Næste</v-btn>
   </v-form>
 </template>
 
 <script>
-
+import {editExampleBus} from '@/main'
 
 export default {
   name: "FormForventninger",
@@ -83,7 +88,15 @@ export default {
     };
   }, 
   methods: {
-    
+    submit() {
+      const payload = {
+        question1: this.question1,
+        question2: this.question2,
+        scaleQuestion1: this.scaleQuestion1,
+        scaleQuestion2: this.scaleQuestion2
+      }
+      editExampleBus.$emit('ForventningerSubmit', payload)
+    }
   }
 };
 </script>

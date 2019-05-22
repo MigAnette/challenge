@@ -50,6 +50,9 @@ export default {
   methods: {
     // on start udfordring and Gem udfordring
     // both have to compile and create the data in the right way
+    sendToFirebase() {
+      db.collection('users')
+    }
   },
   created() {
     let ref = db

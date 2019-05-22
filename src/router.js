@@ -15,7 +15,9 @@ import Login from '@/views/user/login/Login';
 import AddForventninger from '@/views/editExample/AddForventninger';
 import EditExampleNameAndDescrip from '@/views/editExample/EditExampleNameAndDescrip';
 import EditExampleStatusPlan from '@/views/editExample/EditExampleStatusPlan';
-import EditExampleTrin from '@/views/editExample/EditExampleTrin';
+import EditExampleTrin1 from '@/views/editExample/EditExampleTrin1';
+import EditExampleTrin2 from '@/views/editExample/EditExampleTrin2';
+import EditExampleTrin3 from '@/views/editExample/EditExampleTrin3';
 // Status:
 import StatusOpg from '@/views/status/StatusOpg';
 import StatusReflect from '@/views/status/StatusReflect';
@@ -121,9 +123,27 @@ const router = new Router({
     },
     {
       // EditExampleTrin
-      path: '/:udfordringen_id/redigerEksempel/trin',
-      name: 'EditExampleTrin',
-      component: EditExampleTrin,
+      path: '/:udfordringen_id/redigerEksempel/trin/:trin_navn',
+      name: 'EditExampleTrin1',
+      component: EditExampleTrin1,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // EditExampleTrin
+      path: '/:udfordringen_id/redigerEksempel/trin2/:trin_navn',
+      name: 'EditExampleTrin2',
+      component: EditExampleTrin2,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // EditExampleTrin
+      path: '/:udfordringen_id/redigerEksempel/trin3/:trin_navn',
+      name: 'EditExampleTrin3',
+      component: EditExampleTrin3,
       // meta: {
       //   requiresAuth: true
       // }

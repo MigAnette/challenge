@@ -21,9 +21,9 @@
       <h2 class="text-xs-center hidden-lg-and-up smallH1">Tilføj Dine Forventninger:</h2>
     </div>
 
-    <form-forventninger></form-forventninger>
+    <form-forventninger v-model="forventninger"></form-forventninger>
     <!-- the same button creates the forventninger -->
-    <v-btn :to="{name: 'EditExampleNameAndDescrip', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn>
+    <!-- <v-btn :to="{name: 'EditExampleNameAndDescrip', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn> -->
 
     <div class="navProtector"></div>
   </div>
@@ -33,6 +33,7 @@
 import db from "@/firebase/init";
 import BackArrow from "@/components/navigation/BackArrow";
 import FormForventninger from "@/components/editCreateChallenge/FormForventninger";
+import {editExampleBus} from '@/main'
 
 export default {
   name: "AddForventninger",
@@ -42,7 +43,8 @@ export default {
   },
   data() {
     return {
-      udfordring: null
+      udfordring: null,
+      forventninger: null
     };
   },
   methods: {
@@ -60,6 +62,11 @@ export default {
         this.udfordring.id = doc.id;
       });
     });
+  },
+   mounted () {
+    editExampleBus.$on('ForventningerSubmit', (payload) => {
+      console.log(payload);
+    })
   }
 };
 </script>

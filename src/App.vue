@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     navNotOnPages() {
-      if (this.$route.path == "/" || this.$route.path == "/login") {
+      if (this.$route.path == "/" || this.$route.path == "/login" || this.$route.path == '/eksempler') {
         this.notFrontAndLogin = false;
       }
     }

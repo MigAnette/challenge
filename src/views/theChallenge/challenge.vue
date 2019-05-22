@@ -37,7 +37,7 @@
     <!-- button to start udfordring -->
     <div  class="btnContainer">
       <v-btn :to="{name: 'AddForventninger', params: {udfordringen_id: this.udfordring.udfordringSlug}}" color="teal white--text" ripple class="pt-6 startChalBtn">
-        <span>Start Udfordring</span>
+        <span>Tilmeld for at starte udfordring her</span>
       </v-btn>
     </div>
     

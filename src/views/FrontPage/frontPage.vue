@@ -20,7 +20,7 @@
     <!-- Link with Se Udfordringerne her that goes to the examples -->
     <div class="btnFrontContainer">
       <v-btn class="btnFront" flat :to="{name: 'Examples'}">
-        <span class="subheading exampleBtn">Se Udfordringerne Her</span>
+        <span class="subheading exampleBtn">Se Eksempler på udfordringer Her</span>
       </v-btn>
     </div>
     <!-- dots that show which of the slides you are at -->
