@@ -3,7 +3,7 @@
     <!-- back arrow to add forventninger -->
     <back-arrow></back-arrow>
     <div class="challengeContainer">
-    <!-- header with Rediger Eksemplet -->
+      <!-- header with Rediger Eksemplet -->
       <!-- H1 for desktop: -->
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Rediger Eksemplet</h1>
       <h1
@@ -20,11 +20,10 @@
       <h2 class="text-xs-center hidden-lg-and-up smallH1">Rediger Navn og Beskrivelse:</h2>
     </div>
     <!-- Input field for the name with actual name -->
-    <form-name-and-descrip :nameAndDescrip="udfordring"></form-name-and-descrip>
-   
+    <form-name-and-descrip :nameAndDescrip="udfordring" :nextPath="nextPath"></form-name-and-descrip>
 
     <!-- button to go to next step and to edit trin -->
-    <v-btn :to="{name: 'EditExampleTrin', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn>
+    <!-- :to="{name: 'EditExampleTrin', params: {udfordringen_id: udfordring.udfordringSlug } -->
   </div>
 </template>
 
@@ -41,7 +40,13 @@ export default {
   },
   data() {
     return {
-        udfordring: null
+      udfordring: null,
+      nextPath: {
+        pathName: "EditExampleTrin1",
+        paramsUdfordring: this.$route.params.udfordringen_id,
+        paramsUser: this.$route.params.user_id,
+        paramsTrin: 1
+      }
     };
   },
   methods: {

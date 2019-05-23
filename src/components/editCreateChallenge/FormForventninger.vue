@@ -100,7 +100,7 @@ export default {
         personer: this.personer
       };
       challengeBus.$emit("ForventningerSubmit", forventninger);
-      this.$router.push({name: this.nextPath.pathName, params: this.nextPath.paramsUdfordring, params: this.nextPath.paramsUser});
+      this.$router.push({name: this.nextPath.pathName, params: {udfordringen_id: this.nextPath.paramsUdfordring, user_id: this.nextPath.paramsUser}});
     },
     addPerson() {
       let text = this.personText.trim();

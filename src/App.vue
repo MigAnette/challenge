@@ -29,11 +29,7 @@ export default {
     };
   },
   methods: {
-    navNotOnPages() {
-      if (this.$route.name == 'FrontPage' || this.$route.name == "Login" || this.$route.path == 'SignUpExamples') {
-        this.notFrontAndLogin = false;
-      }
-    }
+  
   },
   watch: {
     '$route' (to, from ) {

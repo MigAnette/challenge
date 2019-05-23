@@ -132,7 +132,7 @@ const router = new Router({
     },
     {
       // EditExampleStatusPlan
-      path: '/:udfordringen_id/redigerEksempel/statusPlan',
+      path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/statusPlan',
       name: 'EditExampleStatusPlan',
       component: EditExampleStatusPlan,
       // meta: {
@@ -141,7 +141,7 @@ const router = new Router({
     },
     {
       // EditExampleTrin
-      path: '/:udfordringen_id/redigerEksempel/trin1/:trin_navn',
+      path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/trin1/',
       name: 'EditExampleTrin1',
       component: EditExampleTrin1,
       // meta: {
@@ -150,7 +150,7 @@ const router = new Router({
     },
     {
       // EditExampleTrin
-      path: '/:udfordringen_id/redigerEksempel/trin2/:trin_navn',
+      path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/trin2/',
       name: 'EditExampleTrin2',
       component: EditExampleTrin2,
       // meta: {
@@ -159,7 +159,7 @@ const router = new Router({
     },
     {
       // EditExampleTrin
-      path: '/:udfordringen_id/redigerEksempel/trin3/:trin_navn',
+      path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/trin3/',
       name: 'EditExampleTrin3',
       component: EditExampleTrin3,
       // meta: {

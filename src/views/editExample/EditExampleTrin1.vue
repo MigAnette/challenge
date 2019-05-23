@@ -12,7 +12,7 @@
         class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic"
       >{{this.udfordring.udfordringNavn}}</h1>
       <!-- header with Tilføj Forventninger -->
-      <h2 class="text-xs-center hidden-md-and-down desktopH1">Rediger Trin</h2>
+      <h2 class="text-xs-center hidden-md-and-down desktopH1">Rediger Trin 1</h2>
 
       <!-- H1 for everything else: -->
       <h1 class="hidden-lg-and-up smallH1">Rediger Eksemplet</h1>
@@ -23,24 +23,10 @@
     </div>
 
     <v-container>
-      <v-form>
-    <v-flex mt-5>
-      <h2>Trin {{thisTrin.trinNr}}:</h2>
-      <v-text-field :label='"Navn på trin " + thisTrin.trinNr' v-model="thisTrin.trinNavn "></v-text-field>
-    </v-flex>
-
-    
-    <v-flex mt-3>
-      <h4>Opgave {{opgave.opgNr}} </h4>
-      <v-textarea auto-grow required outline label="Navn på opgave" v-model="opgave.opgaveNavn"></v-textarea>
-      <h5>Vælg person en der kan hjælpe med opgaven:</h5>
-      <v-select label="Person" :items="items" v-model="select.person_id[opgave.opgNr]"></v-select>
-    </v-flex>
-    
-  </v-form>
+      <form-trin :udfordring="udfordring" :formTrinNr="formTrinNr" :nextPath="nextPath"></form-trin>
     </v-container>
     <!-- button to go to finish making trin -->
-    <v-btn :to="{name: 'EditExampleStatusPlan', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn>
+  
     <div class="navProtector"></div>
   </div>
 </template>
@@ -59,26 +45,17 @@ export default {
   data() {
     return {
       udfordring: null,
-      trin: []
+      formTrinNr: 1,
+      nextPath: {
+        pathName: "EditExampleTrin2",
+        paramsUdfordring: this.$route.params.udfordringen_id,
+        paramsUser: this.$route.params.user_id,
+      } 
     };
   },
   methods: {
-    callTrin() {
-      db.collection("eksempler")
-        .doc(this.udfordring.id)
-        .collection("Trin")
-        .where("trinSlug", '==', this.$route.params.trin_navn)
-        .get()
-        .then(snapshot => {
-          snapshot.forEach(doc => {
-            let trinet = doc.data();
-            trinet.id = doc.id;
-          });
-        });
-    },
-    sendDataFirebse() {
-      db.collection("users").doc(uid).collection('udfordringer').add()
-    }
+    
+   
   },
   created() {
     let ref = db
@@ -91,11 +68,15 @@ export default {
         snapshot.forEach(doc => {
           this.udfordring = doc.data();
           this.udfordring.id = doc.id;
-        });
-      })
-      .then(() => {
-        return this.callTrin();
+        })
+      
       });
+  },
+  watch: {
+    '$route' (to, from) {
+      console.log(to)
+      console.log(to.params.trin_nr)
+    }
   }
 };
 </script>

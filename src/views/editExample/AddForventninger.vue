@@ -33,7 +33,7 @@
 import db from "@/firebase/init";
 import BackArrow from "@/components/navigation/BackArrow";
 import FormForventninger from "@/components/editCreateChallenge/FormForventninger";
-import {challengeBus} from '@/main'
+import { challengeBus } from "@/main";
 
 export default {
   name: "AddForventninger",
@@ -45,7 +45,12 @@ export default {
     return {
       udfordring: null,
       forventninger: null,
-      nextPath: {pathName: "EditExampleNameAndDescrip", paramsUdfordring: this.$route.params.udfordringen_id, paramsUser: this.$route.params.user_id}    };
+      nextPath: {
+        pathName: "EditExampleNameAndDescrip",
+        paramsUdfordring: this.$route.params.udfordringen_id,
+        paramsUser: this.$route.params.user_id
+      }
+    };
   },
   methods: {
     // on-click event that creates forventninger in the right spot
@@ -63,11 +68,10 @@ export default {
       });
     });
   },
-   mounted () {
-    challengeBus.$on('ForventningerSubmit', (forventninger) => {
+  mounted() {
+    challengeBus.$on("ForventningerSubmit", forventninger => {
       console.log(forventninger);
-      
-    })
+    });
   }
 };
 </script>
