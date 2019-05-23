@@ -2,9 +2,15 @@
   <v-layout wrap row>
     <v-flex mt-3 v-for="opgave in opgaver" :key="opgave">
       <h4>Opgave {{opgave.opgNr}}</h4>
-      <v-textarea auto-grow required outline :label='"Navn på opgave " + opgave.opgNr' v-model="opgave.opgaveNavn"></v-textarea>
+      <v-textarea
+        auto-grow
+        required
+        outline
+        :label='"Navn på opgave " + opgave.opgNr'
+        v-model="opgave.opgaveNavn"
+      ></v-textarea>
       <h5>Vælg person en der kan hjælpe med opgaven:</h5>
-      <v-select label="Person" :items="items" v-model="select.person_id[opgave.opgNr]"></v-select>
+      <v-select label="Person" :items="personer" v-model="select.person_id[opgave.opgNr]"></v-select>
     </v-flex>
 
     <v-btn @click="submit">Næste</v-btn>
@@ -13,16 +19,21 @@
 
 <script>
 import db from "@/firebase/init";
+import { challengeBus } from "@/main";
+
 export default {
   name: "FormTrinOpg",
   props: ["trinet", "udfordring", "nextPath"],
   data() {
     return {
       opgaver: [],
-      items: ["Brian", "Klaus", "Trine", "Ditte", "Martin"],
+      personer: [],
       opgaveNavn: [],
       select: {
         person_id: []
+      },
+      data: {
+        question1: null
       }
     };
   },
@@ -35,6 +46,10 @@ export default {
           user_id: this.nextPath.paramsUser
         }
       });
+    },
+    updatePerson(forventninger) {
+      this.data = forventninger;
+      console.log(forventnigner);
     }
   },
   created() {
@@ -52,9 +67,14 @@ export default {
           this.opgaver.push(opgave);
         });
       });
+  },
+  mounted() {},
+  beforeCreate() {
+    challengeBus.$on("ForventningerSubmit", forventninger => {
+      this.updatePerson(forventninger);
+      console.log(forventninger);
+    });
   }
-  
-
 };
 </script>
 

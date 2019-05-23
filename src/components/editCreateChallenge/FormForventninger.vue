@@ -82,10 +82,10 @@ export default {
   props: ["nextPath"],
   data() {
     return {
-      question1: null,
-      question2: null,
-      scaleQuestion1: null,
-      scaleQuestion2: null,
+      question1: "",
+      question2: "",
+      scaleQuestion1: "",
+      scaleQuestion2: "",
       personText: "",
       personer: []
     };
