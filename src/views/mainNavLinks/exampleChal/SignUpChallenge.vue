@@ -6,8 +6,6 @@
       <v-spacer></v-spacer>
       <!-- gear icon that shows a modal with editing the challenge and deleting the challenge -->
       <!-- component -->
-
-      <setting-challenge v-if="notExamples"></setting-challenge>
     </v-toolbar>
 
     <!-- Header with Udfordringen name dynamic -->
@@ -66,21 +64,6 @@ export default {
       udfordring: null,
       user: null
     };
-  },
-  methods: {
-    settingOnExample() {
-      if (this.$route.params.main_id == "eksempler") {
-        this.notExamples = false;
-      }
-    },
-    // signedUp() {
-    //   if(this.user) {
-    //     this.$router.push({name: 'AddForventninger', params: {udfordringen_id: this.udfordring.udfordringSlug}});
-    //   } else {
-    //      this.$router.push({name: 'SignUp', params: {main: 'eksempler'}});
-    //   }
-    // }
-
   },
   created() {
     // get udfordringen

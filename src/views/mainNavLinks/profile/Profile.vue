@@ -1,50 +1,90 @@
 <template>
-    <div>
-        <!-- Gear Icon in top right corner showing the settingProfile modal -->
+  <div>
+    <!-- Gear Icon in top right corner showing the settingProfile modal -->
+    <v-toolbar flat color="transparent">
+      <v-spacer></v-spacer>
+      <setting-profile></setting-profile>
+    </v-toolbar>
+    <div class="challengeContainer">
+      <!-- Header with Din Profil -->
+      <h1 class="text-xs-center hidden-md-and-down desktopH1">Din Profil</h1>
 
-        <!-- Header with Din Profil -->
-        <!-- Name and email -->
+      <!-- H1 for everything else: -->
 
-        <!-- Header with Dine udfordringer -->
+      <h1 class="hidden-lg-and-up smallH1">Din Profil</h1>
 
-        <!-- Challenge box with one challenge in v-for have link to the specific challenge -->
-            <!-- Trin 1 -->
-            <!-- Trin 2 -->
-            <!-- Trin 3 -->
-
-            <!-- If made statusbar -->
-
-        <!-- button with a plus sign that goes to Lav en udfordring -->
-
-    <!-- ------------------------------------------------------------------------------------------ -->
-
-        <!-- If Profile is empty: -->
-
-        <!-- component from folder empty -->
-
-            
-
+      <!-- Name and email -->
+      <h6> {{user.brugerNavn}} </h6>
+      <!-- Header with Dine udfordringer -->
     </div>
+    <v-layout row wrap>
+      <v-flex xs12 sm6 md6 lg4 v-for="udfordring in udfordringer" :key="udfordring.id">
+        <v-card
+          elevation="2"
+          class="ma-3"
+          :to="{name: 'Challenge', params:{udfordringen_id: udfordring.udfordringSlug}}"
+        >
+          <!-- text Udfordring-Name -->
+          <v-card-title class="headline">{{ udfordring.udfordringNavn}}</v-card-title>
+          <!-- Trin: -->
+          <profile-card-text :udfordringen="udfordring"></profile-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+
+    <!-- If made statusbar -->
+
+    <!-- button with a plus sign that goes to Lav en udfordring -->
+  </div>
 </template>
 
 <script>
+import db from "@/firebase/init";
+import firebase from "firebase/app";
+require("firebase/auth");
+
+import ProfileCardText from "@/components/profileComponents/ProfileCardText";
+import SettingProfile from "@/components/settings/SettingProfile";
 export default {
-    name: 'Profile',
-    components: {
+  name: "Profile",
+  components: {
+    SettingProfile,
+    ProfileCardText
+  },
+  props: {},
+  data() {
+    return {
+      udfordringer: [],
+      user: null
+    };
+  },
+  created() {
+    // get challenge with trin
+    let ref = db.collection("users");
 
-    },
-    props: {},
-    data() {
-        return {
+    ref
+      .doc(this.$route.params.user_id)
+      .collection("udfordringer")
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          let udfordring = doc.data();
+          udfordring.id = doc.id;
+          this.udfordringer.push(udfordring);
+        });
+      });
 
-        }
-    },
-    created() {
-        // get challenge with trin
-    }
-}
+    ref
+      .where("user_id", "==", firebase.auth().currentUser.uid)
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          (this.user = doc.data()), (this.user.id = doc.id);
+        });
+      });
+  }
+};
 </script>
 
 <style>
-
 </style>

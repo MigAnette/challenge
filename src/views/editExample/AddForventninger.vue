@@ -70,7 +70,6 @@ export default {
   },
   mounted() {
     challengeBus.$on("ForventningerSubmit", forventninger => {
-      console.log(forventninger);
     });
   }
 };

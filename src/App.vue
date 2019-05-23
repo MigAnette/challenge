@@ -35,7 +35,6 @@ export default {
     '$route' (to, from ) {
       if (to.params.user_id) {
         this.notFrontAndLogin = true;
-        console.log(to.name);
       } 
     }
   }

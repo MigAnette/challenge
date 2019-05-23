@@ -32,7 +32,7 @@ export default {
       select: {
         person_id: []
       },
-      data: {
+      personData: {
         question1: null
       }
     };
@@ -48,8 +48,8 @@ export default {
       });
     },
     updatePerson(forventninger) {
-      this.data = forventninger;
-      console.log(forventnigner);
+      this.personData = forventninger;
+      console.log(forventninger);
     }
   },
   created() {
@@ -72,7 +72,6 @@ export default {
   beforeCreate() {
     challengeBus.$on("ForventningerSubmit", forventninger => {
       this.updatePerson(forventninger);
-      console.log(forventninger);
     });
   }
 };
