@@ -21,7 +21,7 @@
       <h2 class="text-xs-center hidden-lg-and-up smallH1">Tilføj Dine Forventninger:</h2>
     </div>
 
-    <form-forventninger v-model="forventninger"></form-forventninger>
+    <form-forventninger v-model="forventninger" :nextPath="nextPath"></form-forventninger>
     <!-- the same button creates the forventninger -->
     <!-- <v-btn :to="{name: 'EditExampleNameAndDescrip', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn> -->
 
@@ -33,7 +33,7 @@
 import db from "@/firebase/init";
 import BackArrow from "@/components/navigation/BackArrow";
 import FormForventninger from "@/components/editCreateChallenge/FormForventninger";
-import {editExampleBus} from '@/main'
+import {challengeBus} from '@/main'
 
 export default {
   name: "AddForventninger",
@@ -44,8 +44,8 @@ export default {
   data() {
     return {
       udfordring: null,
-      forventninger: null
-    };
+      forventninger: null,
+      nextPath: {pathName: "EditExampleNameAndDescrip", paramsUdfordring: this.$route.params.udfordringen_id, paramsUser: this.$route.params.user_id}    };
   },
   methods: {
     // on-click event that creates forventninger in the right spot
@@ -64,8 +64,9 @@ export default {
     });
   },
    mounted () {
-    editExampleBus.$on('ForventningerSubmit', (payload) => {
-      console.log(payload);
+    challengeBus.$on('ForventningerSubmit', (forventninger) => {
+      console.log(forventninger);
+      
     })
   }
 };

@@ -29,8 +29,6 @@
           <v-radio value="radio-4"></v-radio>
           <v-radio value="radio-5"></v-radio>
         </v-radio-group>
-
-        
       </v-flex>
     </v-layout>
 
@@ -58,13 +56,16 @@
     <!-- Header with person -->
     <h4>Skriv de personer der kan hjælpe dig:</h4>
     <!-- input field with add -->
-    <v-text-field v-model="personer.navn"></v-text-field>
-    
-    <v-btn>Tilføj</v-btn>
+    <v-text-field v-model="personText"></v-text-field>
+
+    <v-btn @click="addPerson">Tilføj</v-btn>
     <!-- Added people can be seen underneath -->
-    <div v-for="person in personer" :key="person">
-        <h5> {{person.navn}} </h5>
-    </div>
+    <v-layout row wrap>
+      <div v-for="person in personer" :key="person">
+        <v-chip @input="remove(person)" close>{{person}}</v-chip>
+      </div>
+    </v-layout>
+
     <!-- Added people can be removed by clicking on them -->
     <!-- 5 people max -->
 
@@ -74,28 +75,42 @@
 </template>
 
 <script>
-import {editExampleBus} from '@/main'
+import {challengeBus} from "@/main";
 
 export default {
   name: "FormForventninger",
+  props: ["nextPath"],
   data() {
     return {
       question1: null,
       question2: null,
       scaleQuestion1: null,
       scaleQuestion2: null,
+      personText: "",
       personer: []
     };
-  }, 
+  },
   methods: {
     submit() {
-      const payload = {
+      const forventninger = {
         question1: this.question1,
         question2: this.question2,
         scaleQuestion1: this.scaleQuestion1,
-        scaleQuestion2: this.scaleQuestion2
+        scaleQuestion2: this.scaleQuestion2,
+        personer: this.personer
+      };
+      challengeBus.$emit("ForventningerSubmit", forventninger);
+      this.$router.push({name: this.nextPath.pathName, params: this.nextPath.paramsUdfordring, params: this.nextPath.paramsUser});
+    },
+    addPerson() {
+      let text = this.personText.trim();
+      if (text && this.personer.length < 5) {
+        this.personer.push(text);
+        this.personText = "";
       }
-      editExampleBus.$emit('ForventningerSubmit', payload)
+    },
+    remove(item) {
+      this.personer.splice(this.personer.indexOf(item), 1);
     }
   }
 };

@@ -62,7 +62,8 @@ export default {
         v => !!v || "Kodeord er påkrævet",
         v => v.length >= 6 || "Kodeordet skal have mindst 6 karaktere"
       ],
-      navnRules: [v => !!v || "Navn er påkrævet"]
+      navnRules: [v => !!v || "Navn er påkrævet"],
+      udfordring: null
     };
   },
   methods: {
@@ -80,17 +81,26 @@ export default {
             });
         })
         .then(() => {
-            if(this.$router.go(-1) == '/eksempler') {
-                this.$router.push({name: 'AddForventninger'});
-            } else {
-                this.$route.go(-1);
-            }
+            
+                this.$router.push({name: 'AddForventninger', params: {udfordringen_id: this.udfordring.udfordringSlug, user_id: cred.user.uid}});
         })
         .catch(err => {
           console.log(err);
           this.feedback = err.message;
         });
     }
+  },
+  created() {
+    let ref = db
+      .collection("eksempler")
+      .where("udfordringSlug", "==", this.$route.params.udfordringen_id);
+
+    ref.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        this.udfordring = doc.data();
+        this.udfordring.id = doc.id;
+      });
+    });
   }
 };
 </script>

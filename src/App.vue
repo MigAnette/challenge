@@ -24,19 +24,24 @@ export default {
   },
   data() {
     return {
-      notFrontAndLogin: true,
+      notFrontAndLogin: false,
       userLogin: false
     };
   },
   methods: {
     navNotOnPages() {
-      if (this.$route.path == "/" || this.$route.path == "/login" || this.$route.path == '/eksempler') {
+      if (this.$route.name == 'FrontPage' || this.$route.name == "Login" || this.$route.path == 'SignUpExamples') {
         this.notFrontAndLogin = false;
       }
     }
   },
-  created() {
-    this.navNotOnPages();
+  watch: {
+    '$route' (to, from ) {
+      if (to.params.user_id) {
+        this.notFrontAndLogin = true;
+        console.log(to.name);
+      } 
+    }
   }
 };
 </script>

@@ -5,7 +5,9 @@ require('firebase/auth')
 // Main navigation links:
 import Home from '@/views/mainNavLinks/home/Home';
 import Profile from '@/views/mainNavLinks/profile/Profile';
-import Examples from '@/views/mainNavLinks/exampleChal/Examples';
+import SignUpExamples from '@/views/mainNavLinks/exampleChal/SignUpExamples';
+import SignUpChallenge from '@/views/mainNavLinks/exampleChal/SignUpChallenge';
+import LoggedInExamples from '@/views/mainNavLinks/exampleChal/LoggedInExamples';
 // Frontpage new user:
 import FrontPage from '@/views/frontPage/FrontPage';
 import SignUp from '@/views/user/signUp/SignUp';
@@ -48,7 +50,7 @@ const router = new Router({
 // Main navigation links: 
     {
       // Home
-      path: '/hjem',
+      path: '/hjem/:user_id',
       name: 'Home',
       component: Home,
       // meta: {
@@ -57,7 +59,7 @@ const router = new Router({
     },
     {
       // Profile
-      path: '/profil',
+      path: '/profil/:user_id',
       // has to go to user profile page
       name: 'Profile',
       component: Profile,
@@ -66,10 +68,26 @@ const router = new Router({
       // }
     },
     {
-      // Examples
+      // SignUpExamples
       path: '/eksempler',
       name: 'Examples',
-      component: Examples
+      component: SignUpExamples
+    
+    },
+    {
+      // SignUpChallenge
+      path: '/eksempler/udfordringen/:udfordringen_id',
+      name: 'SignUpChallenge',
+      component: SignUpChallenge,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // Examples
+      path: '/eksempler/:user_id',
+      name: 'LoggedInExamples',
+      component: LoggedInExamples
     },
 
 // Frontpage new user:
@@ -81,7 +99,7 @@ const router = new Router({
     },
     {
       // SignUp
-      path: '/:main/tilmeld',
+      path: '/tilmeld/:udfordringen_id',
       name: 'SignUp',
       component: SignUp
     },
@@ -96,7 +114,7 @@ const router = new Router({
 // editExample
     {
       // AddForventninger
-      path:'/:udfordringen_id/redigerEksempel/forventninger',
+      path:'/eksempler/:user_id/:udfordringen_id/redigerEksempel/forventninger',
       name: 'AddForventninger',
       component: AddForventninger,
       // meta: {
@@ -105,7 +123,7 @@ const router = new Router({
     },
     {
       // EditExampleNameAndDescrip
-      path:'/:udfordringen_id/redigerEksempel/navn&beskrivelse',
+      path:'/eksempler/:user_id/:udfordringen_id/redigerEksempel/navn&beskrivelse',
       name: 'EditExampleNameAndDescrip',
       component: EditExampleNameAndDescrip,
       // meta: {
@@ -123,7 +141,7 @@ const router = new Router({
     },
     {
       // EditExampleTrin
-      path: '/:udfordringen_id/redigerEksempel/trin/:trin_navn',
+      path: '/:udfordringen_id/redigerEksempel/trin1/:trin_navn',
       name: 'EditExampleTrin1',
       component: EditExampleTrin1,
       // meta: {
@@ -210,7 +228,7 @@ const router = new Router({
 // the Challenge
     {
       // Challenge
-      path: '/:main_id/udfordringen/:udfordringen_id',
+      path: '/eksempler/:user_id/udfordringen/:udfordringen_id',
       name: 'Challenge',
       component: Challenge,
       // meta: {
