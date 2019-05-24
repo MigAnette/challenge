@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { challengeBus } from "@/main";
+// import { challengeBus } from "@/main";
 
 export default {
   name: "FormNameAndDescrip",
@@ -26,10 +26,7 @@ export default {
   },
   methods: {
     submit() {
-      const nameAndDescrip = {
-        nameAndDescrip: this.nameAndDescrip
-      };
-      this.$emit("submit", nameAndDescrip);
+      this.$emit('submit', { udfordringNavn: this.nameAndDescrip.udfordringNavn, udfordringDescrip: this.nameAndDescrip.udfordringDescrip }); 
       this.$router.push({
         name: this.nextPath.pathName,
         params: {

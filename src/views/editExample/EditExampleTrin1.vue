@@ -23,10 +23,15 @@
     </div>
 
     <v-container>
-      <form-trin :udfordring="udfordring" :formTrinNr="formTrinNr" :nextPath="nextPath"></form-trin>
+      <form-trin
+        :udfordring="udfordring"
+        :formTrinNr="formTrinNr"
+        @submit="onSubmit"
+        :nextPath="nextPath"
+      ></form-trin>
     </v-container>
     <!-- button to go to finish making trin -->
-  
+
     <div class="navProtector"></div>
   </div>
 </template>
@@ -49,33 +54,32 @@ export default {
       nextPath: {
         pathName: "EditExampleTrin2",
         paramsUdfordring: this.$route.params.udfordringen_id,
-        paramsUser: this.$route.params.user_id,
-      } 
+        paramsUser: this.$route.params.user_id
+      }
     };
   },
   methods: {
-    
-   
+    onSubmit(payload) {
+      console.log("onSubmit:fired!");
+      console.log(payload);
+    }
   },
   created() {
     let ref = db
       .collection("eksempler")
       .where("udfordringSlug", "==", this.$route.params.udfordringen_id);
 
-    ref
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          this.udfordring = doc.data();
-          this.udfordring.id = doc.id;
-        })
-      
+    ref.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        this.udfordring = doc.data();
+        this.udfordring.id = doc.id;
       });
+    });
   },
   watch: {
-    '$route' (to, from) {
-      console.log(to)
-      console.log(to.params.trin_nr)
+    $route(to, from) {
+      console.log(to);
+      console.log(to.params.trin_nr);
     }
   }
 };

@@ -25,7 +25,7 @@ export default {
   name: "FormTrinOpg",
   props: ["trinet", "udfordring", "nextPath"],
   data() {
-    return {
+    return { 
       opgaver: [],
       personer: [],
       opgaveNavn: [],
@@ -46,11 +46,12 @@ export default {
           user_id: this.nextPath.paramsUser
         }
       });
-    },
-    updatePerson(forventninger) {
-      this.personData = forventninger;
-      console.log(forventninger);
     }
+    
+    // updatePerson(forventninger) {
+    //   this.personData = forventninger;
+    //   console.log(forventninger);
+    // }
   },
   created() {
     db.collection("eksempler")
@@ -67,13 +68,13 @@ export default {
           this.opgaver.push(opgave);
         });
       });
-  },
-  mounted() {},
-  beforeCreate() {
-    challengeBus.$on("ForventningerSubmit", forventninger => {
-      this.updatePerson(forventninger);
-    });
   }
+  // mounted() {},
+  //   beforeCreate() {
+  //     challengeBus.$on("ForventningerSubmit", forventninger => {
+  //       this.updatePerson(forventninger);
+  //     });
+  //   }
 };
 </script>
 

@@ -14,7 +14,7 @@
       <h1 class="hidden-lg-and-up smallH1">Din Profil</h1>
 
       <!-- Name and email -->
-      <h5> {{user.email}} </h5>
+      <h5 class="text-xs-center">{{user.email}}</h5>
       <!-- Header with Dine udfordringer -->
     </div>
     <v-layout row wrap>
@@ -75,7 +75,6 @@ export default {
           this.udfordringer.push(udfordring);
         });
       });
-
   }
 };
 </script>
