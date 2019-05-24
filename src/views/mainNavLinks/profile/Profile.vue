@@ -14,7 +14,7 @@
       <h1 class="hidden-lg-and-up smallH1">Din Profil</h1>
 
       <!-- Name and email -->
-      <h6> {{user.brugerNavn}} </h6>
+      <h5> {{user.email}} </h5>
       <!-- Header with Dine udfordringer -->
     </div>
     <v-layout row wrap>
@@ -62,6 +62,8 @@ export default {
     // get challenge with trin
     let ref = db.collection("users");
 
+    this.user = firebase.auth().currentUser;
+
     ref
       .doc(this.$route.params.user_id)
       .collection("udfordringer")
@@ -74,14 +76,6 @@ export default {
         });
       });
 
-    ref
-      .where("user_id", "==", firebase.auth().currentUser.uid)
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          (this.user = doc.data()), (this.user.id = doc.id);
-        });
-      });
   }
 };
 </script>

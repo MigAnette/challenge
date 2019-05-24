@@ -3,11 +3,11 @@
     <!-- header with Navn: -->
     <h4>Navn:</h4>
     <!-- Input field for the name with actual name -->
-    <v-text-field v-model="udfordringName" required label="Navn på udfordring"></v-text-field>
+    <v-text-field v-model="nameAndDescrip.udfordringNavn" required label="Navn på udfordring"></v-text-field>
     <!-- header with Beskrivelse: -->
     <h4>Beskrivelse:</h4>
     <!-- textbox for the description with acutal description-->
-    <v-textarea outline auto-grow label="Beskriv din udfordring" v-model="udfordringDescrip"></v-textarea>
+    <v-textarea outline auto-grow label="Beskriv din udfordring" v-model="nameAndDescrip.udfordringDescrip"></v-textarea>
 
     <v-btn @click="submit">Næste</v-btn>
   </v-form>
@@ -21,17 +21,15 @@ export default {
   props: ["nameAndDescrip", "nextPath"],
   data() {
     return {
-      udfordringName: this.nameAndDescrip.udfordringNavn,
-      udfordringDescrip: this.nameAndDescrip.udfordringDescrip
+      nameAndDescrip: null,
     };
   },
   methods: {
     submit() {
       const nameAndDescrip = {
-        udfordringName: this.navn,
-        udfordringDescrip: this.udfordringDescrip
+        nameAndDescrip: this.nameAndDescrip
       };
-      challengeBus.$emit("NameAndDescripSubmit", nameAndDescrip);
+      this.$emit("submit", nameAndDescrip);
       this.$router.push({
         name: this.nextPath.pathName,
         params: {

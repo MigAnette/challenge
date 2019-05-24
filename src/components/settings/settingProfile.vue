@@ -20,9 +20,9 @@
           <v-list-tile-title>Rediger Navn</v-list-tile-title>
         </v-list-tile>
         <v-divider></v-divider>
-        <v-list-tile>
-          <v-list-tile-title>Log af</v-list-tile-title>
-        </v-list-tile>
+        <a @click="logout"><v-list-tile>
+           <v-list-tile-title> Log af</v-list-tile-title>
+        </v-list-tile></a>
       </v-list>
     </v-menu>
     <!-- THEY ARE ALL BUTTONS -->
@@ -38,6 +38,9 @@
 </template>
 
 <script>
+import firebase from 'firebase/app' 
+require('firebase/auth')
+
 export default {
   name: "SettingProfile",
   data() {
@@ -45,7 +48,14 @@ export default {
   },
   methods: {
     // dynamic change of the background
+    
     // signOff with authentication
+    logout() {  
+            firebase.auth().signOut().then(() => {
+                this.$router.push({ name: 'FrontPage'})
+            })
+        }
+
   }
 };
 </script>

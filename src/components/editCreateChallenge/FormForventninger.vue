@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import {challengeBus} from "@/main";
+// import {challengeBus} from "@/main";
 
 export default {
   name: "FormForventninger",
@@ -99,7 +99,7 @@ export default {
         scaleQuestion2: this.scaleQuestion2,
         personer: this.personer
       };
-      challengeBus.$emit("ForventningerSubmit", forventninger);
+      this.$emit("submit", forventninger);
       this.$router.push({name: this.nextPath.pathName, params: {udfordringen_id: this.nextPath.paramsUdfordring, user_id: this.nextPath.paramsUser}});
     },
     addPerson() {

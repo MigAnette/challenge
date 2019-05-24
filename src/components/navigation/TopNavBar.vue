@@ -32,23 +32,7 @@ export default {
     };
   },
   methods: {
-    homeLogin() {
-      if (this.user) {
-        this.$router.push({ name: "Home", params: { user_id: this.user.uid } });
-      } else {
-        this.$router.push({ name: "SignUp", params: { main: "hjem" } });
-      }
-    },
-    profileLogin() {
-      if (this.user) {
-        this.$router.push({
-          name: "Profile",
-          params: { user_id: this.user.uid }
-        });
-      } else {
-        this.$router.push({ name: "SignUp", params: { main: "profil" } });
-      }
-    }
+    
   },
   created() {
     this.user = firebase.auth().currentUser;

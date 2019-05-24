@@ -6,21 +6,21 @@
       <!-- header with Rediger Eksemplet -->
       <!-- H1 for desktop: -->
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Rediger Eksemplet</h1>
-      <h1
+      <!-- <h1
         class="text-xs-center hidden-md-and-down desktopH1 font-italic"
-      >{{this.udfordring.udfordringNavn}}</h1>
+      >{{udfordring.udfordringNavn}}</h1> -->
       <!-- header with Tilføj Forventninger -->
       <h2 class="text-xs-center hidden-md-and-down desktopH1">Rediger Navn og Beskrivelse:</h2>
 
       <!-- H1 for everything else: -->
       <h1 class="hidden-lg-and-up smallH1">Rediger Eksemplet</h1>
-      <h1 class="hidden-lg-and-up smallH1 teal--text font-italic">{{this.udfordring.udfordringNavn}}</h1>
+      <!-- <h1 class="hidden-lg-and-up smallH1 teal--text font-italic">{{udfordring.udfordringNavn}}</h1> -->
 
       <!-- header with Tilføj Forventninger -->
       <h2 class="text-xs-center hidden-lg-and-up smallH1">Rediger Navn og Beskrivelse:</h2>
     </div>
     <!-- Input field for the name with actual name -->
-    <form-name-and-descrip :nameAndDescrip="udfordring" :nextPath="nextPath"></form-name-and-descrip>
+    <form-name-and-descrip :nameAndDescrip="udfordring" @submit="onSubmit" :nextPath="nextPath"></form-name-and-descrip>
 
     <!-- button to go to next step and to edit trin -->
     <!-- :to="{name: 'EditExampleTrin', params: {udfordringen_id: udfordring.udfordringSlug } -->
@@ -51,6 +51,10 @@ export default {
   },
   methods: {
     // create
+     onSubmit(payload) {
+      console.log("onSubmit:fired!");
+      console.log(payload);
+    }
   },
   created() {
     // get on name and description
