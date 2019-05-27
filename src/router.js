@@ -29,11 +29,9 @@ import CreateNameAndDescrip from '@/views/createChallenge/CreateNameAndDescrip';
 import CreateStatusPlan from '@/views/createChallenge/CreateStatusPlan';
 import CreateTrin from '@/views/createChallenge/CreateTrin';
 // the Challenge
-import Challenge from '@/views/theChallenge/Challenge';
+import ProfilChallenge from '@/views/theChallenge/ProfilChallenge';
+import ExampleChallenge from '@/views/theChallenge/ExampleChallenge';
 import Forventninger from '@/views/theChallenge/Forventninger';
-import TrinOpg from '@/views/theChallenge/TrinOpg';
-import StatusOverview from '@/views/theChallenge/status/StatusOverview';
-import StatusSingleOpg from '@/views/theChallenge/status/StatusSingleOpg';
 // edit Challenge
 import EditForventninger from '@/views/editChallenge/EditForventninger';
 import EditNameAndDescrip from '@/views/editChallenge/EditNameAndDescrip';
@@ -229,8 +227,17 @@ const router = new Router({
     {
       // Challenge
       path: '/eksempler/:user_id/udfordringen/:udfordringen_id',
-      name: 'Challenge',
-      component: Challenge,
+      name: 'ExampleChallenge',
+      component: ExampleChallenge,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // Challenge
+      path: '/profil/:user_id/udfordringen/:udfordringen_id',
+      name: 'ProfilChallenge',
+      component: ProfilChallenge,
       // meta: {
       //   requiresAuth: true
       // }
@@ -240,34 +247,6 @@ const router = new Router({
       path: '/:main/udfordringen/:udfordringen_id/forventninger',
       name: 'Forventninger',
       component: Forventninger,
-      // meta: {
-      //   requiresAuth: true
-      // }
-    },
-    {
-      // TrinOpg
-      path: '/:main/udfordringen/:udfordringen_id/:trin_id',
-      name: 'TrinOpg',
-      component: TrinOpg,
-      // meta: {
-      //   requiresAuth: true
-      // }
-    },
-    // Status oversigt og opgaver
-    {
-      // Status Oversigt
-      path: '/:main/udfordringen/:udfordringen_id/:trin_id/statusOversigt',
-      name: 'StatusOverview',
-      component: StatusOverview,
-      // meta: {
-      //   requiresAuth: true
-      // }
-    },
-    {
-      // Status Single Opg
-      path: '/:main/udfordrignen/:udfordringen_id/:trin_id/status/:opgave_id/:status_id',
-      name: 'StatusSingleOpg',
-      component: StatusSingleOpg,
       // meta: {
       //   requiresAuth: true
       // }

@@ -22,7 +22,7 @@
         <v-card
           elevation="2"
           class="ma-3"
-          :to="{name: 'Challenge', params:{udfordringen_id: udfordring.udfordringSlug}}"
+          :to="{name: 'ProfilChallenge', params:{udfordringen_id: udfordring.udfordringSlug}}"
         >
           <!-- text Udfordring-Name -->
           <v-card-title class="headline">{{ udfordring.udfordringNavn}}</v-card-title>

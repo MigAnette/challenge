@@ -33,7 +33,6 @@
 import db from "@/firebase/init";
 import BackArrow from "@/components/navigation/BackArrow";
 import FormForventninger from "@/components/editCreateChallenge/FormForventninger";
-import {editExampleBus} from '@/main'
 
 export default {
   name: "AddForventninger",
@@ -63,11 +62,7 @@ export default {
       });
     });
   },
-   mounted () {
-    editExampleBus.$on('ForventningerSubmit', (payload) => {
-      console.log(payload);
-    })
-  }
+  
 };
 </script>
 
