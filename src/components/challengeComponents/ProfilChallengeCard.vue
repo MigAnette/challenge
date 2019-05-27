@@ -2,7 +2,7 @@
   <v-layout row wrap>
     <v-flex xs12 md4 lg4 v-for="trinet in trin" :key="trinet">
       <v-card class="py-3 ma-3">
-        <v-card-title class="title pb-0 pt-1">Trin {{trinet.trinNr}}:</v-card-title>
+        <v-card-title class="title pb-0 pt-1">Trin {{trinet.trinNr}}: <span v-if="trinet.trinDone"><v-icon right color="green">check</v-icon></span></v-card-title>
         <profil-challenge-card-opg :trinene="trinet" :udfordring="udfordringen"></profil-challenge-card-opg>
       </v-card>
     </v-flex>

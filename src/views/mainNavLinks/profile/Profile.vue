@@ -61,11 +61,11 @@ export default {
   },
   created() {
     // get challenge with trin
-    let ref = db.collection("users");
+    
 
     this.user = firebase.auth().currentUser;
 
-    ref
+    db.collection("users")
       .doc(this.$route.params.user_id)
       .collection("udfordringer")
       .get()

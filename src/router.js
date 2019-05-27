@@ -168,7 +168,7 @@ const router = new Router({
 // Status
     {
       // StatusOpg
-      path: '/hjem/:challenge/status/:trin/:opgave',
+      path: '/hjem/:udfordringen_id/status',
       name: 'StatusOpg',
       component: StatusOpg,
       // meta: {
@@ -188,7 +188,7 @@ const router = new Router({
 // Create Challenge
     {
       // Create Forventninger
-      path: '/lavUdfordring/forventninger',
+      path: '/hjem/:user_id/lavUdfordring/forventninger/',
       name: 'CreateForventninger',
       component: CreateForventninger,
       // meta: {

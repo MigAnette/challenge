@@ -2,7 +2,6 @@
   <div>
     <!-- back arrow going back to frontpage if not signed up -->
     <v-toolbar flat color="transparent">
-      <back-arrow></back-arrow>
     </v-toolbar>
     <!-- Header with Udfordringer -->
     <!-- H1 for desktop: -->
@@ -29,13 +28,11 @@
 
 <script>
 import db from "@/firebase/init";
-import BackArrow from "@/components/navigation/BackArrow";
 import ExampleCardText from "@/components/exampleComponents/ExampleCardText";
 
 export default {
   name: "Examples",
   components: {
-    BackArrow,
     ExampleCardText
   },
   data() {

@@ -3,7 +3,7 @@
     <v-container>
       <top-nav-bar v-if="notFrontAndLogin"></top-nav-bar>
 
-      <router-view/>
+      <router-view :key="$route.fullPath"/>
 
       <bottom-nav-bar v-if="notFrontAndLogin"></bottom-nav-bar>
     </v-container>

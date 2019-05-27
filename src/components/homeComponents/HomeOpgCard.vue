@@ -1,8 +1,8 @@
 <template>
-  <div class="mx-3 pt-2">
+    <div class="mx-3 pt-2">
       <div v-for="opgave in opgaver" :key="opgave" class=" pa-auto">
           <span class="pt-1 subheading">Opgave {{opgave.opgNr}}: </span>
-          <p class="pt-0 body-2"> {{opgave.opgaveNavn}} <span v-if="opgave.opgDone"><v-icon right color="green">check</v-icon></span> </p>
+          <p class="pt-0 body-2"> {{opgave.opgaveNavn}} <span v-if="opgave.opgDone"><v-icon right color="green">check</v-icon></span></p> 
       </div>
   </div>
 </template>
@@ -11,9 +11,9 @@
 import db from "@/firebase/init";
 
 export default {
-  name: "ChallengeCardOpg",
-  props: ["trinene", "udfordring"],
-  data() {
+    name: 'HomeOpgCard',
+    props: ['trin', 'udfordring'],
+    data() {
     return {
       opgaver: []
     };
@@ -24,7 +24,7 @@ export default {
       .collection('udfordringer')
       .doc(this.udfordring.id)
       .collection("Trin")
-      .doc(this.trinene.id)
+      .doc(this.trin.id)
       .collection("opgaver")
       .orderBy("opgNr", "asc")
       .get()
@@ -36,8 +36,9 @@ export default {
         });
       });
   }
-};
+}
 </script>
 
 <style>
+
 </style>
