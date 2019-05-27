@@ -28,6 +28,7 @@
           <v-card-title class="headline">{{ udfordring.udfordringNavn}}</v-card-title>
           <!-- Trin: -->
           <profile-card-text :udfordringen="udfordring"></profile-card-text>
+          <img src="@/assets/Statusbar.png">
         </v-card>
       </v-flex>
     </v-layout>
