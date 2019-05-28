@@ -10,7 +10,7 @@
       <v-list>
     <!-- log off goes to a modal that ensures the decision-->
           <v-list-tile @click="logout">
-            <v-list-tile-title>Log af</v-list-tile-title>
+            <v-list-tile-title> Log af</v-list-tile-title>
           </v-list-tile>
       </v-list>
     </v-menu>
