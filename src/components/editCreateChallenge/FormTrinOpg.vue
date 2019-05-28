@@ -9,25 +9,25 @@
         :label='"Navn på opgave " + opgave.opgNr'
         v-model="opgave.opgaveNavn"
       ></v-textarea>
-      <h5>Vælg person en der kan hjælpe med opgaven:</h5>
+      <h5>Vælg en person der kan hjælpe med opgaven:</h5>
       <v-select label="Person" :items="personer" v-model="select.person_id[opgave.opgNr]"></v-select>
     </v-flex>
 
-    <v-btn @click="submit">Næste</v-btn>
+      <!-- <v-btn class="startChalBtn"  color="teal white--text" ripple @click="submit">Næste</v-btn> -->
+    
   </v-layout>
 </template>
 
 <script>
 import db from "@/firebase/init";
-import { challengeBus } from "@/main";
 
 export default {
   name: "FormTrinOpg",
-  props: ["trinet", "udfordring", "nextPath"],
+  props: ["trinet", "udfordring"],
   data() {
-    return { 
+    return {
       opgaver: [],
-      personer: [],
+      personer: ["Brian", "Hanne", "Emma", "Bjarne", "Oliver"],
       opgaveNavn: [],
       select: {
         person_id: []
@@ -37,22 +37,7 @@ export default {
       }
     };
   },
-  methods: {
-    submit() {
-      this.$router.push({
-        name: this.nextPath.pathName,
-        params: {
-          udfordringen_id: this.nextPath.paramsUdfordring,
-          user_id: this.nextPath.paramsUser
-        }
-      });
-    }
-    
-    // updatePerson(forventninger) {
-    //   this.personData = forventninger;
-    //   console.log(forventninger);
-    // }
-  },
+  methods: {},
   created() {
     db.collection("eksempler")
       .doc(this.udfordring.id)
@@ -69,12 +54,6 @@ export default {
         });
       });
   }
-  // mounted() {},
-  //   beforeCreate() {
-  //     challengeBus.$on("ForventningerSubmit", forventninger => {
-  //       this.updatePerson(forventninger);
-  //     });
-  //   }
 };
 </script>
 

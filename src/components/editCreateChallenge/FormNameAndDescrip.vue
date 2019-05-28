@@ -7,9 +7,16 @@
     <!-- header with Beskrivelse: -->
     <h4>Beskrivelse:</h4>
     <!-- textbox for the description with acutal description-->
-    <v-textarea outline auto-grow label="Beskriv din udfordring" v-model="nameAndDescrip.udfordringDescrip"></v-textarea>
+    <v-textarea
+      outline
+      auto-grow
+      label="Beskriv din udfordring"
+      v-model="nameAndDescrip.udfordringDescrip"
+    ></v-textarea>
 
-    <v-btn @click="submit">Næste</v-btn>
+    <div class="btnContainer">
+      <v-btn class="startChalBtn" color="teal white--text" ripple @click="submit">Næste</v-btn>
+    </div>
   </v-form>
 </template>
 
@@ -21,12 +28,15 @@ export default {
   props: ["nameAndDescrip", "nextPath"],
   data() {
     return {
-      nameAndDescrip: null,
+      nameAndDescrip: null
     };
   },
   methods: {
     submit() {
-      this.$emit('submit', { udfordringNavn: this.nameAndDescrip.udfordringNavn, udfordringDescrip: this.nameAndDescrip.udfordringDescrip }); 
+      this.$emit("submit", {
+        udfordringNavn: this.nameAndDescrip.udfordringNavn,
+        udfordringDescrip: this.nameAndDescrip.udfordringDescrip
+      });
       this.$router.push({
         name: this.nextPath.pathName,
         params: {

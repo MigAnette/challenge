@@ -3,11 +3,8 @@
     <!-- back arrow that goes to the page before top left corner -->
     <v-toolbar flat color="transparent">
       <back-arrow></back-arrow>
-      <v-spacer></v-spacer>
       <!-- gear icon that shows a modal with editing the challenge and deleting the challenge -->
       <!-- component -->
-
-      <setting-challenge></setting-challenge>
     </v-toolbar>
 
     <!-- Header with Udfordringen name dynamic -->

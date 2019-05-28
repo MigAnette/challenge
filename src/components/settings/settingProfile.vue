@@ -8,38 +8,18 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-tile>
-          <v-list-tile-title>Rediger Email</v-list-tile-title>
-        </v-list-tile>
-        <v-divider></v-divider>
-        <v-list-tile>
-          <v-list-tile-title>Rediger Kodeord</v-list-tile-title>
-        </v-list-tile>
-        <v-divider></v-divider>
-        <v-list-tile>
-          <v-list-tile-title>Rediger Navn</v-list-tile-title>
-        </v-list-tile>
-        <v-divider></v-divider>
-        <a @click="logout"><v-list-tile>
-           <v-list-tile-title> Log af</v-list-tile-title>
-        </v-list-tile></a>
+    <!-- log off goes to a modal that ensures the decision-->
+          <v-list-tile @click="logout">
+            <v-list-tile-title>Log af</v-list-tile-title>
+          </v-list-tile>
       </v-list>
     </v-menu>
-    <!-- THEY ARE ALL BUTTONS -->
-
-    <!-- Update Email router link -->
-    <!-- Update Password router link -->
-    <!-- Update Name router link -->
-
-    <!-- change theme to dark or light -->
-
-    <!-- log off goes to a modal that ensures the decision-->
   </div>
 </template>
 
 <script>
-import firebase from 'firebase/app' 
-require('firebase/auth')
+import firebase from "firebase/app";
+require("firebase/auth");
 
 export default {
   name: "SettingProfile",
@@ -48,14 +28,16 @@ export default {
   },
   methods: {
     // dynamic change of the background
-    
-    // signOff with authentication
-    logout() {  
-            firebase.auth().signOut().then(() => {
-                this.$router.push({ name: 'FrontPage'})
-            })
-        }
 
+    // signOff with authentication
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ name: "FrontPage" });
+        });
+    }
   }
 };
 </script>

@@ -57,7 +57,7 @@ export default {
     };
   },
   methods: {
-    // on-click for the button has to update/check email password use GeoNinja file
+    // on-click for the button has to update/check email password
     login() {
       if (this.email && this.password) {
         firebase

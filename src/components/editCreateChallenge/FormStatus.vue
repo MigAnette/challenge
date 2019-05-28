@@ -16,7 +16,7 @@
     <h4>Hvornår vil du gerne påmindes?</h4>
     <!-- header with Klokkeslæt -->
     <!-- Time picker with button to set alarm -->
-    <v-time-picker format="24hr" v-model="picker"></v-time-picker>
+    <v-time-picker color="teal" format="24hr" v-model="picker"></v-time-picker>
   </v-form>
 </template>
 

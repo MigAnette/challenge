@@ -25,9 +25,16 @@
     </v-container>
 
     <!-- Button with Start Udfordring / which both saves(creates) and starts(link to home) challenge -->
-    <v-btn @click="startAndSave()">Start Udfordring</v-btn>
+    <div class="btnContainer">
+      <v-btn
+        class="startChalBtn"
+        color="teal white--text"
+        ripple
+        @click="startAndSave()"
+      >Start Udfordring</v-btn>
+    </div>
 
-     <div class="navProtector"></div>
+    <div class="navProtector"></div>
   </div>
 </template>
 
@@ -51,7 +58,7 @@ export default {
     // on start udfordring and Gem udfordring
     // both have to compile and create the data in the right way
     sendToFirebase() {
-      db.collection('users')
+      db.collection("users");
     }
   },
   created() {

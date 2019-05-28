@@ -33,14 +33,27 @@
     <!-- button :to={name: status} for Gør Status: opens new page Status(opgave) -->
     <div class="btnContainer">
       <v-btn
-        :to="{name: 'StatusOpg', params: {udfordringen_id: udfordring.udfordringSlug}}"
+        :to="{name: 'StatusOpg', params: {udfordringen_id: udfordring.udfordringSlug, user_id: this.$route.params.user_id}}"
         color="teal white--text"
         ripple
-        class="pt-6 startChalBtn"
+        pulse
+        class="startChalBtn"
       >Gør Status</v-btn>
     </div>
     <!-- button with a plus sign that goes to Lav en udfordring -->
-    <v-btn fab fixed color="teal" dark absolute right :to=" {name: 'CreateForventninger', params: {user_id: this.$route.params.user_id}} "><v-icon dark large>add</v-icon></v-btn>
+    <v-btn
+      fab
+      color="teal"
+      dark
+      absolute
+      right
+      :to=" {name: 'CreateForventninger', params: {user_id: this.$route.params.user_id}} "
+    >
+      <v-icon dark large>add</v-icon>
+    </v-btn>
+
+    <div class="navProtector"></div>
+    <div class="navProtector"></div>
   </div>
 </template>
 

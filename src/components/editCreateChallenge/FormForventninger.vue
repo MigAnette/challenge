@@ -70,12 +70,13 @@
     <!-- 5 people max -->
 
     <!-- button that goes to naming and descriping the challenge -->
-    <v-btn @click="submit">Næste</v-btn>
+    <div class="btnContainer">
+      <v-btn class="startChalBtn" color="teal white--text" ripple @click="submit">Næste</v-btn>
+    </div>
   </v-form>
 </template>
 
 <script>
-// import {challengeBus} from "@/main";
 
 export default {
   name: "FormForventninger",
@@ -99,8 +100,13 @@ export default {
         scaleQuestion2: this.scaleQuestion2,
         personer: this.personer
       };
-      this.$emit("submit", forventninger);
-      this.$router.push({name: this.nextPath.pathName, params: {udfordringen_id: this.nextPath.paramsUdfordring, user_id: this.nextPath.paramsUser}});
+      this.$router.push({
+        name: this.nextPath.pathName,
+        params: {
+          udfordringen_id: this.nextPath.paramsUdfordring,
+          user_id: this.nextPath.paramsUser
+        }
+      });
     },
     addPerson() {
       let text = this.personText.trim();

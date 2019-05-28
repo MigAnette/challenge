@@ -41,18 +41,6 @@ export default {
         { text: "Start din udfordring i dag ved at trykke på linket herunder" }
       ]
     };
-  },
-  methods: {
-    // a function for previous button on the slider
-    previous() {
-      const first = this.frontTexts.shift();
-      this.frontTexts = this.frontTexts.concat(first);
-    },
-    // a function for next button on the slider
-    next() {
-      const last = this.frontTexts.pop();
-      this.frontTexts = [last].concat(this.frontTexts);
-    }
   }
 };
 </script>

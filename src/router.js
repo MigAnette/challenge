@@ -168,7 +168,7 @@ const router = new Router({
 // Status
     {
       // StatusOpg
-      path: '/hjem/:udfordringen_id/status',
+      path: '/hjem/:user_id/:udfordringen_id/status',
       name: 'StatusOpg',
       component: StatusOpg,
       // meta: {
@@ -177,7 +177,7 @@ const router = new Router({
     },
     {
       // StatusReflect
-      path: '/hjem/:challenge/status/:trin/:opgave/reflektion',
+      path: '/hjem/:user_id/:udfordringen_id/status/reflektion',
       name: 'StatusReflect',
       component: StatusReflect,
       // meta: {

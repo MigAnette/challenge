@@ -8,7 +8,7 @@
       <!-- H1 for desktop: -->
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Rediger Eksemplet</h1>
       <h1
-        class="text-xs-center hidden-md-and-down desktopH1 font-italic"
+        class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic"
       >{{this.udfordring.udfordringNavn}}</h1>
       <!-- header with Tilføj Forventninger -->
       <h2 class="text-xs-center hidden-md-and-down desktopH1">Tilføj Dine Forventninger</h2>

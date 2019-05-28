@@ -5,8 +5,11 @@
       <v-text-field :label='"Navn på trin " + this.trinet.trinNr' v-model="this.trinet.trinNavn "></v-text-field>
     </v-flex>
 
-    <form-trin-opg v-model="trin" :trinet="trinet" :udfordring="udfordring" @submit="onSubmit" :nextPath="nextPath"></form-trin-opg>
+    <form-trin-opg v-model="trin" :trinet="trinet" :udfordring="udfordring" @submit="onSubmit"></form-trin-opg>
 
+<div class="btnContainer">
+  <v-btn class="startChalBtn"  color="teal white--text" ripple @click="submit">Næste</v-btn>
+</div>
   </v-form>
 </template>
 
@@ -41,8 +44,14 @@ export default {
     };
   },
   methods: {
-    onSubmit(payload) {
-      this.$emit('submit', payload);
+    submit() {
+      this.$router.push({
+        name: this.nextPath.pathName,
+        params: {
+          udfordringen_id: this.nextPath.paramsUdfordring,
+          user_id: this.nextPath.paramsUser
+        }
+      });
     }
   },
   created() {
@@ -57,7 +66,7 @@ export default {
           this.trinet.id = doc.id;
         });
       });   
-  },
+  }
   
 };
 </script>
