@@ -21,7 +21,7 @@
       <h2 class="text-xs-center hidden-lg-and-up smallH1">Tilføj Dine Forventninger:</h2>
     </div>
 
-    <form-forventninger v-model="forventninger" @submit="onSubmit" :nextPath="nextPath"></form-forventninger>
+    <form-forventninger :nextPath="nextPath"></form-forventninger>
     <!-- the same button creates the forventninger -->
     <!-- <v-btn :to="{name: 'EditExampleNameAndDescrip', params: {udfordringen_id: udfordring.udfordringSlug }}">Næste</v-btn> -->
 
@@ -55,10 +55,7 @@ export default {
   methods: {
     // on-click event that creates forventninger in the right spot
     // / if forventninger exists they have to be updated instead
-    onSubmit(payload) {
-      console.log("onSubmit:fired!");
-      console.log(payload);
-    }
+
   },
   created() {
     let ref = db

@@ -9,7 +9,7 @@
 
     <!-- Text saying Login -->
     <v-layout align-content-center mt-5>
-      <v-flex xs12 sm6 md6 lg6>
+      <v-flex xs12>
         <v-form class="px-3" ref="form">
           <!-- Email: -->
           <!-- Input for email -->

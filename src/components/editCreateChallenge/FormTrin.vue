@@ -2,13 +2,13 @@
   <v-form>
     <v-flex mt-5>
       <h2>Trin {{this.trinet.trinNr}}:</h2>
-      <v-text-field :label='"Navn på trin " + this.trinet.trinNr' v-model="this.trinet.trinNavn "></v-text-field>
+      <v-textarea rows="2" :label='"Navn på trin " + this.trinet.trinNr' v-model="this.trinet.trinNavn "></v-textarea>
     </v-flex>
 
     <form-trin-opg v-model="trin" :trinet="trinet" :udfordring="udfordring" @submit="onSubmit"></form-trin-opg>
 
 <div class="btnContainer">
-  <v-btn class="startChalBtn"  color="teal white--text" ripple @click="submit">Næste</v-btn>
+  <v-btn class="startChalBtn" color="teal white--text" ripple @click="submit">Næste</v-btn>
 </div>
   </v-form>
 </template>

@@ -6,7 +6,7 @@
       </v-btn>
     </template>
     <v-list>
-      <v-list-tile>
+      <v-list-tile :to="{name: 'EditForventninger', params: {user_id: this.$route.params.user_id, udfordringen_id: this.$route.params.udfordringen_id}}">
         <v-list-tile-title>Rediger Udfordring</v-list-tile-title>
       </v-list-tile>
       <v-divider></v-divider>

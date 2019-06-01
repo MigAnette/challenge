@@ -1,5 +1,5 @@
 <template>
-    <v-btn fab icon outline small color="teal" @click="goBack" class="hidden-lg-and-up">
+    <v-btn fab icon outline small color="teal" @click="goBack">
         <v-icon large>arrow_back</v-icon>
     </v-btn>
 </template>

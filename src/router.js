@@ -27,7 +27,9 @@ import StatusReflect from '@/views/status/StatusReflect';
 import CreateForventninger from '@/views/createChallenge/CreateForventninger';
 import CreateNameAndDescrip from '@/views/createChallenge/CreateNameAndDescrip';
 import CreateStatusPlan from '@/views/createChallenge/CreateStatusPlan';
-import CreateTrin from '@/views/createChallenge/CreateTrin';
+import CreateTrin1 from '@/views/createChallenge/CreateTrin1';
+import CreateTrin2 from '@/views/createChallenge/CreateTrin2';
+import CreateTrin3 from '@/views/createChallenge/CreateTrin3';
 // the Challenge
 import ProfilChallenge from '@/views/theChallenge/ProfilChallenge';
 import ExampleChallenge from '@/views/theChallenge/ExampleChallenge';
@@ -35,7 +37,9 @@ import Forventninger from '@/views/theChallenge/Forventninger';
 // edit Challenge
 import EditForventninger from '@/views/editChallenge/EditForventninger';
 import EditNameAndDescrip from '@/views/editChallenge/EditNameAndDescrip';
-import EditTrin from '@/views/editChallenge/EditTrin';
+import EditTrin1 from '@/views/editChallenge/EditTrin1';
+import EditTrin2 from '@/views/editChallenge/EditTrin2';
+import EditTrin3 from '@/views/editChallenge/EditTrin3';
 import EditStatusPlan from '@/views/editChallenge/EditStatusPlan';
 
 
@@ -197,8 +201,8 @@ const router = new Router({
     },
     {
       // Create Name and Description
-      path: '/lavUdfordring/navn&beskrivelse',
-      name: 'CreateNameAndDescription',
+      path: '/hjem/:user_id/lavUdfordring/navn&beskrivelse',
+      name: 'CreateNameAndDescrip',
       component: CreateNameAndDescrip,
       // meta: {
       //   requiresAuth: true
@@ -206,7 +210,7 @@ const router = new Router({
     },
     {
       // Create Statusplan
-      path: '/lavUdfordring/statusPlan',
+      path: '/hjem/:user_id/lavUdfordring/statusPlan',
       name: 'CreateStatusPlan',
       component: CreateStatusPlan,
       // meta: {
@@ -215,9 +219,27 @@ const router = new Router({
     },
     {
       // Create Trin
-      path: '/lavUdfordring/trin/:trin_id',
-      name: 'CreateTrin',
-      component: CreateTrin,
+      path: '/hjem/:user_id/lavUdfordring/trin1',
+      name: 'CreateTrin1',
+      component: CreateTrin1,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // Create Trin
+      path: '/hjem/:user_id/lavUdfordring/trin2',
+      name: 'CreateTrin2',
+      component: CreateTrin2,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // Create Trin
+      path: '/hjem/:user_id/lavUdfordring/trin3',
+      name: 'CreateTrin3',
+      component: CreateTrin3,
       // meta: {
       //   requiresAuth: true
       // }
@@ -255,7 +277,7 @@ const router = new Router({
 // Edit Challenge
     {
       // Edit Forventninger
-      path: '/:main/udfordringen/:udfordringen_id/redigerUdfordring/forventninger',
+      path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/forventninger',
       name: 'EditForventninger',
       component: EditForventninger,
       // meta: {
@@ -264,7 +286,7 @@ const router = new Router({
     },
     {
       // Edit Name And Desc
-      path: '/:main/udfordringen/:udfordringen_id/redigerUdfordring/navn&beskrivelse',
+      path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/navn&beskrivelse',
       name: 'EditNameAndDescrip',
       component: EditNameAndDescrip,
       // meta: {
@@ -273,16 +295,34 @@ const router = new Router({
     },
     {
       // Edit Trin
-      path: '/:main/udfordringen/:udfordringen_id/redigerUdfordring/trin/:trin_id',
-      name: 'EditTrin',
-      component: EditTrin,
+      path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/trin1/',
+      name: 'EditTrin1',
+      component: EditTrin1,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // Edit Trin
+      path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/trin2',
+      name: 'EditTrin2',
+      component: EditTrin2,
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      // Edit Trin
+      path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/trin3',
+      name: 'EditTrin3',
+      component: EditTrin3,
       // meta: {
       //   requiresAuth: true
       // }
     },
     {
       // Edit StatusPlan
-      path: '/:main/udfordringen/:udfordringen_id/redigerUdfordring/statusplan',
+      path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/statusplan',
       name: 'EditStatusPlan',
       component: EditStatusPlan,
       // meta: {
@@ -291,8 +331,13 @@ const router = new Router({
 
     }
 
-  ]
+  ],
+  scrollBehavior() {
+  return {x: 0, y: 0}
+}
 });
+
+
 
 // Comes from geo-ninjas router:
 router.beforeEach((to, from, next) => {

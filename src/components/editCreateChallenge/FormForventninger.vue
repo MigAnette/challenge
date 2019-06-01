@@ -13,14 +13,13 @@
     <!-- Question -->
     <h4>Hvor nervøs er du for at udføre denne udfordring?</h4>
     <!-- 5 radiobuttons one can be pushed -->
-    <v-layout row wrap>
-      <v-flex xs12>
-        <v-layout>
-          <p>Lidt</p>
-          <p>Mest</p>
-        </v-layout>
-      </v-flex>
+    <v-layout>
+        <v-flex xs6 md2>Lidt</v-flex>
 
+        <v-flex xs6 md10>Mest</v-flex>
+      </v-layout>
+
+  <v-layout>
       <v-flex xs12>
         <v-radio-group v-model="scaleQuestion1" :mandatory="true" row>
           <v-radio value="radio-1"></v-radio>
@@ -35,14 +34,13 @@
     <!-- Question -->
     <h4>Hvor svær tror du denne udfordring bliver?</h4>
     <!-- 5 radiobuttons one can be pushed -->
-    <v-layout row wrap>
-      <v-flex xs12>
-        <v-layout>
-          <p>Lidt</p>
-          <p>Mest</p>
-        </v-layout>
-      </v-flex>
+    <v-layout>
+        <v-flex xs6 md2>Lidt</v-flex>
 
+        <v-flex xs6 md10>Mest</v-flex>
+      </v-layout>
+
+<v-layout>
       <v-flex xs12>
         <v-radio-group v-model="scaleQuestion2" :mandatory="true" row>
           <v-radio value="radio-1"></v-radio>
@@ -57,10 +55,10 @@
     <h4>Skriv de personer der kan hjælpe dig:</h4>
     <!-- input field with add -->
     <v-text-field v-model="personText"></v-text-field>
-
+  <v-layout row wrap>
     <v-btn @click="addPerson">Tilføj</v-btn>
     <!-- Added people can be seen underneath -->
-    <v-layout row wrap>
+  
       <div v-for="person in personer" :key="person">
         <v-chip @input="remove(person)" close>{{person}}</v-chip>
       </div>
@@ -93,13 +91,6 @@ export default {
   },
   methods: {
     submit() {
-      const forventninger = {
-        question1: this.question1,
-        question2: this.question2,
-        scaleQuestion1: this.scaleQuestion1,
-        scaleQuestion2: this.scaleQuestion2,
-        personer: this.personer
-      };
       this.$router.push({
         name: this.nextPath.pathName,
         params: {

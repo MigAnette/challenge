@@ -8,7 +8,7 @@
     <div class="challengeContainer pb-5">
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Status</h1>
       <h1
-        class="text-xs-center hidden-md-and-down desktopH1 teal--text"
+        class="text-xs-center hidden-md-and-down teal--text"
       >{{udfordring.udfordringNavn}}</h1>
 
       <!-- H1 for everything else: -->

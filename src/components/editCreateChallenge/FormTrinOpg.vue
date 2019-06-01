@@ -5,16 +5,14 @@
       <v-textarea
         auto-grow
         required
+        rows="1"
         outline
         :label='"Navn på opgave " + opgave.opgNr'
         v-model="opgave.opgaveNavn"
       ></v-textarea>
       <h5>Vælg en person der kan hjælpe med opgaven:</h5>
       <v-select label="Person" :items="personer" v-model="select.person_id[opgave.opgNr]"></v-select>
-    </v-flex>
-
-      <!-- <v-btn class="startChalBtn"  color="teal white--text" ripple @click="submit">Næste</v-btn> -->
-    
+    </v-flex>    
   </v-layout>
 </template>
 

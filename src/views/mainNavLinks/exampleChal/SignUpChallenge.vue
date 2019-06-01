@@ -49,14 +49,12 @@
 <script>
 import db from "@/firebase/init";
 import BackArrow from "@/components/navigation/BackArrow";
-import SettingChallenge from "@/components/settings/SettingChallenge";
 import ChallengeCard from "@/components/challengeComponents/ChallengeCard";
 
 export default {
   name: "Challenge",
   components: {
     BackArrow,
-    SettingChallenge,
     ChallengeCard
   },
   data() {
@@ -102,7 +100,7 @@ export default {
   bottom: 0;
 }
 
-h1,
+h1, h2, h3
 p {
   justify-self: center;
 }
