@@ -27,12 +27,12 @@
         class="startChalBtn"
         color="teal white--text"
         ripple
+        disabled
         :to="{name: 'Home', params: {user_id: this.$route.params.user_id}}"
       >Start Udfordring</v-btn>
     </div>
     <div class="btnContainer">
       <v-btn
-        disabled
         class="startChalBtn"
         color="teal white--text"
         ripple
@@ -158,7 +158,7 @@ export default {
               opgNr: this.opgave1.opgNr,
               opgaveNavn: this.opgave1.opgaveNavn,
               opgDone: this.opgave1.opgDone,
-              opgBegun: this.opgave1.opgBegun
+              opgBegun: false
             });
           db.collection("users")
             .doc(this.$route.params.user_id)

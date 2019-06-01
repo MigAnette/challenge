@@ -16,7 +16,9 @@
       <!-- Name and email -->
       <h5 class="text-xs-center">{{user.email}}</h5>
       <!-- Header with Dine udfordringer -->
+      <h2 class="mt-5 teal--text">Dine Udfordringer:</h2>
     </div>
+      
     <v-layout row wrap>
       <v-flex xs12 sm6 md6 lg4 v-for="udfordring in udfordringer" :key="udfordring.id">
         <v-card
@@ -36,6 +38,7 @@
     <!-- If made statusbar -->
 
     <!-- button with a plus sign that goes to Lav en udfordring -->
+    <div class="navProtector"></div>
   </div>
 </template>
 

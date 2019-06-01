@@ -1,52 +1,78 @@
 <template>
-    <div>
-         <!-- back arrow to the page edit name and description -->
+  <div>
+    <!-- back arrow to the page edit trin -->
+    <back-arrow></back-arrow>
+    <div class="challengeContainer">
+      <!-- header with Rediger Udfordrignen -->
+      <!-- H1 for desktop: -->
+      <h1 class="text-xs-center hidden-md-and-down desktopH1">Rediger Udfordringen</h1>
+      <h1
+        class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic"
+      >{{this.udfordring.udfordringNavn}}</h1>
+      <!-- text that says Rediger Trin  -->
+      <h2 class="text-xs-center hidden-md-and-down desktopH1">Rediger Trin 1</h2>
 
-        <!-- header with Rediger din egen udfordring -->
-        <!-- header with Rediger trin -->
+      <!-- H1 for everything else: -->
+      <h1 class="hidden-lg-and-up smallH1">Rediger Udfordringen</h1>
+      <h1 class="hidden-lg-and-up smallH1 teal--text font-italic">{{this.udfordring.udfordringNavn}}</h1>
 
-        <!-- Component for trin 1 -->
-            <!-- button to go to next trin 1 -->
-
-        <!-- Component for trin 2 -->
-            <!-- button to go to back to trin 1 -->
-            <!-- button to go to next trin 2 -->
-
-        <!-- Component for trin 3 -->
-            <!-- button to go back to trin 2 -->
-
-            <!-- button to go to finish making trin -->
+      <!-- header with Rediger Trin -->
+      <h2 class="text-xs-center hidden-lg-and-up smallH1 mb-3">Rediger Trin 1</h2>
     </div>
+
+    <v-container>
+      <edit-form-trin
+        :udfordring="udfordring"
+        :editFormTrinNr="editFormTrinNr"
+        :nextPath="nextPath"
+      ></edit-form-trin>
+    </v-container>
+
+    <div class="navProtector"></div>
+  </div>
 </template>
 
 <script>
+import db from "@/firebase/init";
+import BackArrow from "@/components/navigation/BackArrow";
+import EditFormTrin from "@/components/editChallenge/EditFormTrin";
+
 export default {
-    name: 'EditTrin',
-    components: {},
-    props: {},
-    data() {
-        return {
-            
-        }
-    },
-    methods: {
-        // onclick update button           
-            // trin 1 = trin collection
-                // opgave collection
-                    // 3 opgaver
-            // trin 2 = trin collection
-                // opgave collection
-                    // 3 opgaver
-            // trin 3 = trin collection
-                // opgave collection
-                    // 3 opgaver
+  name: "EditTrin1",
+  components: {
+      EditFormTrin,
+      BackArrow
+  },
+  props: {},
+  data() {
+    return {
+      udfordring: null,
+      editFormTrinNr: 3,
+      nextPath: {
+        pathName: "EditStatusPlan",
+        paramsUdfordring: this.$route.params.udfordringen_id,
+        paramsUser: this.$route.params.user_id
+      }
+    };
+  },
+  methods: {},
+  created() {
+    // get on name and description
+    let ref = db
+      .collection("users")
+      .doc(this.$route.params.user_id)
+      .collection("udfordringer")
+      .where("udfordringSlug", "==", this.$route.params.udfordringen_id);
 
-        
-
-    }
-}
+    ref.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        this.udfordring = doc.data();
+        this.udfordring.id = doc.id;
+      });
+    });
+  }
+};
 </script>
 
 <style>
-
 </style>

@@ -29,7 +29,6 @@
       <v-btn
         class="startChalBtn"
         color="teal white--text"
-        disabled
         ripple
         @click="save()"
       >Start Udfordring</v-btn>
@@ -55,14 +54,14 @@ export default {
       udfordring: null,
       trin1: {
         trinNavn: "Find ud af hvad dine udfordringer er",
-        trinBegun: false,
+        trinBegun: true,
         trinDone: false,
         trinNr: 1,
         trinSlug: "find-ud-af-hvad-dine-udfordringer-er"
       },
       trin1Opgave1: {
         opgaveNavn: "Tænk på udfordringer",
-        opgBegun: false,
+        opgBegun: true,
         opgDone: false,
         opgNr: 1
       },
@@ -144,7 +143,7 @@ export default {
           udfordringDescrip: this.udfordring.udfordringDescrip,
           udfordringSlug: this.udfordring.udfordringSlug,
           udfordringDone: this.udfordring.udfordringDone,
-          udfordringBegun: false
+          udfordringBegun: true
         })
         .then(trin => {
           // calling the createTrin function, where the trin and opgaver is being created, in each there subcollection

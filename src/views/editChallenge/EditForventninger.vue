@@ -3,22 +3,21 @@
     <!-- back arrow to profile -->
 
     <back-arrow></back-arrow>
-    <!-- header with Lav Statusplan -->
     <div class="challengeContainer">
-      <!-- header with Rediger Eksemplet -->
+      <!-- header with Rediger Udfordrignen -->
       <!-- H1 for desktop: -->
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Rediger Udfordringen</h1>
       <h1
         class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic"
       >{{this.udfordring.udfordringNavn}}</h1>
-      <!-- header with Tilføj Forventninger -->
+      <!-- header with Rediger Forventninger -->
       <h2 class="text-xs-center hidden-md-and-down desktopH1">Rediger Forventninger</h2>
 
       <!-- H1 for everything else: -->
       <h1 class="hidden-lg-and-up smallH1">Rediger Udfordringen</h1>
       <h1 class="hidden-lg-and-up smallH1 teal--text font-italic">{{this.udfordring.udfordringNavn}}</h1>
 
-      <!-- header with Tilføj Forventninger -->
+      <!-- header with Rediger Forventninger -->
       <h2 class="text-xs-center hidden-lg-and-up smallH1 mb-3">Rediger Forventninger</h2>
     </div>
 
@@ -91,7 +90,7 @@
       <!-- Header with person -->
       <h4>Skriv de personer der kan hjælpe dig:</h4>
       <!-- input field with add -->
-      <v-text-field v-model="personText"></v-text-field>
+      <v-text-field v-model="personText" hint="Tab for at tilføje" @keydown.tab="addPerson"></v-text-field>
       <v-layout row wrap>
         <v-btn @click="addPerson">Tilføj</v-btn>
         <!-- Added people can be seen underneath -->
@@ -106,7 +105,7 @@
 
       <!-- button that goes to naming and descriping the challenge -->
       <div class="btnContainer">
-        <v-btn class="startChalBtn" color="teal white--text" ripple @click="submit">Næste</v-btn>
+        <v-btn class="startChalBtn" color="teal white--text" :to="{name: 'EditNameAndDescrip', params:{user_id: this.$route.params.user_id, udfordringen_id: this.$route.params.udfordringen_id}}" ripple>Næste</v-btn>
       </div>
     </v-form>
     <div class="navProtector"></div>
@@ -124,11 +123,27 @@ export default {
   },
   data() {
     return {
-        udfordring: null
+        udfordring: null,
+        question1: "Blive bedre",
+        question2: "Om jeg er god nok",
+        scaleQuestion1: "radio-3",
+        scaleQuestion2: "radio-2",
+        personText: "",
+        personer: ["Brian", "Hanne", "Emma", "Bjarne", "Oliver"]
     };
   },
   methods: {
     // onclick will update database even if the text havent been changed
+    addPerson() {
+      let text = this.personText.trim();
+      if (text && this.personer.length < 5) {
+        this.personer.push(text);
+        this.personText = "";
+      }
+    },
+    remove(item) {
+      this.personer.splice(this.personer.indexOf(item), 1);
+    }
   },
    created() {
     let ref = db

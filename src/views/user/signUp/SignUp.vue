@@ -30,7 +30,7 @@
           <p v-if="feedback">{{feedback}}</p>
 
           <!-- Button with Tilmeld/submit opens the site you wanted to go to-->
-          <v-btn @click="submit" :loading="loading">Tilmeld</v-btn>
+          <v-btn @click="submit">Tilmeld</v-btn>
         </v-form>
       </v-flex>
     </v-layout>
@@ -63,7 +63,8 @@ export default {
         v => v.length >= 6 || "Kodeordet skal have mindst 6 karaktere"
       ],
       navnRules: [v => !!v || "Navn er påkrævet"],
-      udfordring: null
+      udfordring: null,
+      userId: null
     };
   },
   methods: {
@@ -79,10 +80,11 @@ export default {
               email: this.email,
               brugerNavn: this.navn
             });
+          console.log(cred.user.uid);
+          this.userId = cred.user.uid;
         })
         .then(() => {
-            
-                this.$router.push({name: 'AddForventninger', params: {udfordringen_id: this.udfordring.udfordringSlug, user_id: cred.user.uid}});
+          this.$router.push({name: 'AddForventninger', params: {udfordringen_id: this.udfordring.udfordringSlug, user_id: this.userId}});
         })
         .catch(err => {
           console.log(err);

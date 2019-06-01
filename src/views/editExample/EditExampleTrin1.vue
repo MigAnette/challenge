@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- back arrow to the page edit example name and description -->
+    <!-- back arrow to the page edit trin -->
     <back-arrow></back-arrow>
     <!-- header with Rediger din egen udfordring -->
     <!-- header with Rediger trin -->
@@ -26,7 +26,6 @@
       <form-trin
         :udfordring="udfordring"
         :formTrinNr="formTrinNr"
-        @submit="onSubmit"
         :nextPath="nextPath"
       ></form-trin>
     </v-container>
@@ -59,10 +58,7 @@ export default {
     };
   },
   methods: {
-    onSubmit(payload) {
-      console.log("onSubmit:fired!");
-      console.log(payload);
-    }
+
   },
   created() {
     let ref = db

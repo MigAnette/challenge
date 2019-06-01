@@ -3,11 +3,13 @@
     <v-toolbar flat color="transparent"></v-toolbar>
     <!-- Header with the challenge name dynamically showing -->
     <div class="challengeContainer">
-      <h1 class="text-xs-center hidden-md-and-down desktopH1">{{udfordring.udfordringNavn}}</h1>
+      <h2 class="text-xs-center hidden-md-and-down desktopH1">Din udfordring:</h2>
+      <h1 class="text-xs-center hidden-md-and-down desktopH1 teal--text">{{udfordring.udfordringNavn}}</h1>
 
       <!-- H1 for everything else: -->
 
-      <h1 class="hidden-lg-and-up smallH1">{{udfordring.udfordringNavn}}</h1>
+      <h2 class="hidden-lg-and-up smallH1">Din udfordring:</h2>
+      <h1 class="hidden-lg-and-up smallH1 teal--text">{{udfordring.udfordringNavn}}</h1>
     </div>
 
     <!-- box with the steps made in a slider where in between

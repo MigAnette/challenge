@@ -54,7 +54,7 @@
     <!-- Header with person -->
     <h4>Skriv de personer der kan hjælpe dig:</h4>
     <!-- input field with add -->
-    <v-text-field v-model="personText"></v-text-field>
+    <v-text-field v-model="personText" hint="Tab for at tilføje" @keydown.tab="addPerson"></v-text-field>
   <v-layout row wrap>
     <v-btn @click="addPerson">Tilføj</v-btn>
     <!-- Added people can be seen underneath -->
