@@ -32,15 +32,11 @@ export default {
   props: ["nameAndDescrip", "nextPath"],
   data() {
     return {
-      nameAndDescrip: null
+     
     };
   },
   methods: {
     submit() {
-      this.$emit("submit", {
-        udfordringNavn: this.nameAndDescrip.udfordringNavn,
-        udfordringDescrip: this.nameAndDescrip.udfordringDescrip
-      });
       this.$router.push({
         name: this.nextPath.pathName,
         params: {

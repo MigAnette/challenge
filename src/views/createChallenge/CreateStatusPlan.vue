@@ -132,7 +132,6 @@ export default {
     createTrin(trin) {
       // here trin 1 is being made in the sub-collection Trin
       // Trin 1
-      console.log("Added document with ID: ", trin.id);
       db.collection("users")
         .doc(this.$route.params.user_id)
         .collection("udfordringer")

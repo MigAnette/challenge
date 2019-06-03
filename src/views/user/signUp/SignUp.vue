@@ -82,7 +82,7 @@ export default {
               email: this.email,
               brugerNavn: this.navn
             });
-          console.log(cred.user.uid);
+          
           this.userId = cred.user.uid;
         })
         .then(() => {
@@ -95,7 +95,6 @@ export default {
           });
         })
         .catch(err => {
-          console.log(err);
           this.feedback = err.message;
         });
     }

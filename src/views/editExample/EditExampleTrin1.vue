@@ -73,12 +73,7 @@ export default {
       });
     });
   },
-  watch: {
-    $route(to, from) {
-      console.log(to);
-      console.log(to.params.trin_nr);
-    }
-  }
+  
 };
 </script>
 

@@ -33,7 +33,7 @@ export default {
   
   },
   watch: {
-    '$route' (to, from ) {
+    '$route' (to) {
       if (to.params.user_id) {
         this.notFrontAndLogin = true;
       } 
