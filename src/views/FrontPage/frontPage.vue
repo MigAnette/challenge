@@ -3,7 +3,7 @@
     <!-- Login link going to login page -->
     <v-toolbar flat color="transparent">
       <v-spacer></v-spacer>
-      <v-btn flat :to="{name: 'Login'}">
+      <v-btn flat color="teal" :to="{name: 'Login'}">
         <span>Login</span>
       </v-btn>
     </v-toolbar>
@@ -12,14 +12,14 @@
     <!-- the slider needs next and previos arrows -->
 
     <v-carousel light>
-      <v-carousel-item interval="6000" touch flat v-for="frontText in frontTexts" :key="frontText">
+      <v-carousel-item interval="600" touch flat v-for="frontText in frontTexts" :key="frontText">
         <h2>{{frontText.text}}</h2>
       </v-carousel-item>
     </v-carousel>
 
     <!-- Link with Se Udfordringerne her that goes to the examples -->
     <div class="btnFrontContainer">
-      <v-btn class="btnFront" flat :to="{name: 'Examples'}">
+      <v-btn class="btnFront" color="teal" flat :to="{name: 'Examples'}">
         <span class="subheading exampleBtn">Se Eksempler på udfordringer Her</span>
       </v-btn>
     </div>

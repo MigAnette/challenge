@@ -1,7 +1,10 @@
 <template>
   <div>
     <!-- back arrow going to Home page -->
-    <v-toolbar flat color="transparent">
+    <v-toolbar class="hidden-lg-only" flat color="transparent">
+      <back-arrow></back-arrow>
+    </v-toolbar>
+    <v-toolbar class="hidden-md-and-down mt-5" flat color="transparent">
       <back-arrow></back-arrow>
     </v-toolbar>
     <!-- Header with Status -->
@@ -10,27 +13,29 @@
       <h1
         class="text-xs-center hidden-md-and-down teal--text"
       >{{udfordring.udfordringNavn}}</h1>
-      <h1 class="text-xs-center hidden-md-and-down">Aftal et møde med træner</h1>
+      <h1 class="text-xs-center hidden-md-and-down font-italic">Aftal et møde med træner</h1>
         
       <!-- H1 for everything else: -->
 
       <h1 class="hidden-lg-and-up smallH1">Status</h1>
       <h1 class="hidden-lg-and-up smallH1 teal--text">{{udfordring.udfordringNavn}}</h1>
-      <h1 class="hidden-lg-and-up smallH1">Aftal et møde med træner</h1>
+      <h1 class="hidden-lg-and-up smallH1 font-italic">Aftal et møde med træner</h1>
     </div>
+    <v-layout align-center justify-center row fill-heigh>
+      <v-flex xs12 md7>
     <v-form input>
       <!-- Question for the status -->
-      <h4>Hvad har du fået ud af opgaven?</h4>
+      <h4 class="mb-2">Hvad har du fået ud af opgaven?</h4>
       <!-- textbox for the answer -->
       <v-textarea auto-grow rows="2" box color="teal" label="Skriv dit svar her"></v-textarea>
 
       <!-- Question for the status -->
-      <h4>Hvad har du lært om dig selv i løbet af denne opgave?</h4>
+      <h4 class="mb-2">Hvad har du lært om dig selv i løbet af denne opgave?</h4>
       <!-- textbox for the answer -->
       <v-textarea auto-grow rows="2" box color="teal" label="Skriv dit svar her"></v-textarea>
 
       <!-- Question for the status -->
-      <h4>Hvor svær er/var opgaven?</h4>
+      <h4 class="mb-2 mt-3">Hvor svær er/var opgaven?</h4>
       <!-- 5 radiobuttons to choose if it was good or bad -->
 
       <v-layout>
@@ -62,6 +67,8 @@
 
       <!-- the button will send the questions answered to the database -->
     </v-form>
+    </v-flex>
+    </v-layout>
     <div class="navProtector"></div>
   </div>
 </template>

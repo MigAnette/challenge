@@ -6,6 +6,7 @@
       <router-view :key="$route.fullPath"/>
 
       <bottom-nav-bar v-if="notFrontAndLogin"></bottom-nav-bar>
+
     </v-container>
   </v-app>
 </template>

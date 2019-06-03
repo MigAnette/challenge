@@ -33,7 +33,6 @@ import CreateTrin3 from '@/views/createChallenge/CreateTrin3';
 // the Challenge
 import ProfilChallenge from '@/views/theChallenge/ProfilChallenge';
 import ExampleChallenge from '@/views/theChallenge/ExampleChallenge';
-import Forventninger from '@/views/theChallenge/Forventninger';
 // edit Challenge
 import EditForventninger from '@/views/editChallenge/EditForventninger';
 import EditNameAndDescrip from '@/views/editChallenge/EditNameAndDescrip';
@@ -55,9 +54,9 @@ const router = new Router({
       path: '/hjem/:user_id',
       name: 'Home',
       component: Home,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Profile
@@ -65,9 +64,9 @@ const router = new Router({
       // has to go to user profile page
       name: 'Profile',
       component: Profile,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // SignUpExamples
@@ -81,9 +80,6 @@ const router = new Router({
       path: '/eksempler/udfordringen/:udfordringen_id',
       name: 'SignUpChallenge',
       component: SignUpChallenge,
-      // meta: {
-      //   requiresAuth: true
-      // }
     },
     {
       // Examples
@@ -119,54 +115,54 @@ const router = new Router({
       path:'/eksempler/:user_id/:udfordringen_id/redigerEksempel/forventninger',
       name: 'AddForventninger',
       component: AddForventninger,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // EditExampleNameAndDescrip
       path:'/eksempler/:user_id/:udfordringen_id/redigerEksempel/navn&beskrivelse',
       name: 'EditExampleNameAndDescrip',
       component: EditExampleNameAndDescrip,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // EditExampleStatusPlan
       path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/statusPlan',
       name: 'EditExampleStatusPlan',
       component: EditExampleStatusPlan,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // EditExampleTrin
       path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/trin1/',
       name: 'EditExampleTrin1',
       component: EditExampleTrin1,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // EditExampleTrin
       path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/trin2/',
       name: 'EditExampleTrin2',
       component: EditExampleTrin2,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // EditExampleTrin
       path: '/eksempler/:user_id/:udfordringen_id/redigerEksempel/trin3/',
       name: 'EditExampleTrin3',
       component: EditExampleTrin3,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
 
 // Status
@@ -175,18 +171,18 @@ const router = new Router({
       path: '/hjem/:user_id/:udfordringen_id/status',
       name: 'StatusOpg',
       component: StatusOpg,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // StatusReflect
       path: '/hjem/:user_id/:udfordringen_id/status/reflektion',
       name: 'StatusReflect',
       component: StatusReflect,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
 
 // Create Challenge
@@ -195,54 +191,54 @@ const router = new Router({
       path: '/hjem/:user_id/lavUdfordring/forventninger/',
       name: 'CreateForventninger',
       component: CreateForventninger,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Create Name and Description
       path: '/hjem/:user_id/lavUdfordring/navn&beskrivelse',
       name: 'CreateNameAndDescrip',
       component: CreateNameAndDescrip,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Create Statusplan
       path: '/hjem/:user_id/lavUdfordring/statusPlan',
       name: 'CreateStatusPlan',
       component: CreateStatusPlan,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Create Trin
       path: '/hjem/:user_id/lavUdfordring/trin1',
       name: 'CreateTrin1',
       component: CreateTrin1,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Create Trin
       path: '/hjem/:user_id/lavUdfordring/trin2',
       name: 'CreateTrin2',
       component: CreateTrin2,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Create Trin
       path: '/hjem/:user_id/lavUdfordring/trin3',
       name: 'CreateTrin3',
       component: CreateTrin3,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
 
 // the Challenge
@@ -251,27 +247,18 @@ const router = new Router({
       path: '/eksempler/:user_id/udfordringen/:udfordringen_id',
       name: 'ExampleChallenge',
       component: ExampleChallenge,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Challenge
       path: '/profil/:user_id/udfordringen/:udfordringen_id',
       name: 'ProfilChallenge',
       component: ProfilChallenge,
-      // meta: {
-      //   requiresAuth: true
-      // }
-    },
-    {
-      // Forventninger
-      path: '/:main/udfordringen/:udfordringen_id/forventninger',
-      name: 'Forventninger',
-      component: Forventninger,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
 
 // Edit Challenge
@@ -280,54 +267,54 @@ const router = new Router({
       path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/forventninger',
       name: 'EditForventninger',
       component: EditForventninger,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Edit Name And Desc
       path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/navn&beskrivelse',
       name: 'EditNameAndDescrip',
       component: EditNameAndDescrip,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Edit Trin
       path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/trin1/',
       name: 'EditTrin1',
       component: EditTrin1,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Edit Trin
       path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/trin2',
       name: 'EditTrin2',
       component: EditTrin2,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Edit Trin
       path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/trin3',
       name: 'EditTrin3',
       component: EditTrin3,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       // Edit StatusPlan
       path: '/profil/:user_id/udfordringen/:udfordringen_id/redigerUdfordring/statusplan',
       name: 'EditStatusPlan',
       component: EditStatusPlan,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: true
+      }
 
     }
 
@@ -350,7 +337,7 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       //no user signed up, redirect to signUp
-      next({name: 'Login'});
+      next({name: 'Frontpage'});
     }
   }else {
     next()

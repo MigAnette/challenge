@@ -1,7 +1,8 @@
 <template>
   <div>
     <!-- back arrow to the page edit example name and description -->
-    <back-arrow></back-arrow>
+    <back-arrow class="hidden-lg-only"></back-arrow>
+    <back-arrow class="hidden-md-and-down mt-5"></back-arrow>
     <!-- header with Rediger din egen udfordring -->
     <!-- header with Rediger trin -->
     <div class="challengeContainer">
@@ -9,17 +10,17 @@
       <!-- H1 for desktop: -->
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Rediger Eksemplet</h1>
       <h1
-        class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic"
+        class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic mt-0"
       >{{this.udfordring.udfordringNavn}}</h1>
       <!-- header with Tilføj Forventninger -->
-      <h2 class="text-xs-center hidden-md-and-down desktopH1">Rediger Trin 1</h2>
+      <h2 class="text-xs-center hidden-md-and-down desktopH1 mt-2">Rediger Trin 1</h2>
 
       <!-- H1 for everything else: -->
       <h1 class="hidden-lg-and-up smallH1">Rediger Eksemplet</h1>
       <h1 class="hidden-lg-and-up smallH1 teal--text font-italic">{{this.udfordring.udfordringNavn}}</h1>
 
       <!-- header with Tilføj Forventninger -->
-      <h2 class="text-xs-center hidden-lg-and-up smallH1">Rediger Trin</h2>
+      <h2 class="text-xs-center hidden-lg-and-up smallH1 mt-3 mb-2">Rediger Trin</h2>
     </div>
 
     <v-container>

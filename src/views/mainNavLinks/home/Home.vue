@@ -1,10 +1,12 @@
 <template>
   <div>
-    <v-toolbar flat color="transparent"></v-toolbar>
+    <v-toolbar class="hidden-md-and-up" flat color="transparent"></v-toolbar>
     <!-- Header with the challenge name dynamically showing -->
     <div class="challengeContainer">
       <h2 class="text-xs-center hidden-md-and-down desktopH1">Din udfordring:</h2>
-      <h1 class="text-xs-center hidden-md-and-down desktopH1 teal--text">{{udfordring.udfordringNavn}}</h1>
+      <h1
+        class="text-xs-center hidden-md-and-down desktopH1 teal--text mt-0"
+      >{{udfordring.udfordringNavn}}</h1>
 
       <!-- H1 for everything else: -->
 
@@ -12,24 +14,25 @@
       <h1 class="hidden-lg-and-up smallH1 teal--text">{{udfordring.udfordringNavn}}</h1>
     </div>
 
-    <!-- box with the steps made in a slider where in between
-    is a checkmark. All steps are on the page but you can only see one at a time-->
-    <!-- checkmarks will be added if the task is done -->
-    <home-trin-card :udfordring="udfordring"></home-trin-card>
+    <home-trin-card class="mt-4 mb-4" :udfordring="udfordring"></home-trin-card>
     <!-- status bar(wait for last to make) -->
 
-    <img class="center" src="@/assets/TomStatusBar.png">
+    <v-layout row wrap align-center justify-center fill-height>
+      <img class="center" src="@/assets/TomStatusBar.png">
+    </v-layout>
 
-    <div class="challengeContainer">
-      <h3 class="hidden-md-and-down desktopH1">Sidste Statusopdateringer</h3>
+    <v-layout row wrap align-center justify-center fill-height>
+      <div class="challengeContainer">
+        <h3 class="hidden-md-and-down mt-5 desktopH1">Sidste Statusopdateringer</h3>
 
-      <!-- H1 for everything else: -->
-      <h3 class="hidden-lg-and-up pt-5 smallH1">Sidste Statusopdateringer</h3>
+        <!-- H1 for everything else: -->
+        <h3 class="hidden-lg-and-up mt-5 smallH1">Sidste Statusopdateringer</h3>
 
-      <p
-        class="font-weight-thin"
-      >De sidste 3 statusopdateringer, når du har lavet status på din udfordring</p>
-    </div>
+        <p
+          class="font-weight-light font-italic mb-4"
+        >De sidste 3 statusopdateringer, når du har lavet status på din udfordring</p>
+      </div>
+    </v-layout>
     <!-- last statusupdate: three boxes with the latest added on top(date filter) v-for 3 -->
 
     <!-- button :to={name: status} for Gør Status: opens new page Status(opgave) -->
@@ -54,8 +57,8 @@
       <v-icon dark large>add</v-icon>
     </v-btn>
 
-    <div class="navProtector"></div>
-    <div class="navProtector"></div>
+    <div class="navProtector hidden-lg-only"></div>
+    <div class="navProtector hidden-lg-only"></div>
   </div>
 </template>
 

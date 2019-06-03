@@ -19,7 +19,7 @@
 
       <!-- text with the description of the challenge -->
 
-      <p class="challengeText body-1">{{udfordring.udfordringDescrip}}</p>
+      <p class="challengeText body-1 teal--text">{{udfordring.udfordringDescrip}}</p>
     </div>
 
     <!-- statusbar if it was made -->

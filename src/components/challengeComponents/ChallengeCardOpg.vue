@@ -1,7 +1,7 @@
 <template>
   <div class="mx-3 pt-2">
       <div v-for="opgave in opgaver" :key="opgave" class=" pa-auto">
-          <span class="pt-1 subheading">Opgave {{opgave.opgNr}}: </span>
+          <span class="pt-1 subheading teal--text">Opgave {{opgave.opgNr}}: </span>
           <p class="pt-0 body-2"> {{opgave.opgaveNavn}} </p>
       </div>
   </div>

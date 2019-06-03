@@ -1,31 +1,35 @@
 <template>
   <div>
     <!-- back arrow to edit forventninger -->
-    <back-arrow></back-arrow>
+    <back-arrow class="hidden-lg-only"></back-arrow>
+    <back-arrow class="hidden-md-and-down mt-5"></back-arrow>
     <div class="challengeContainer">
       <!-- header with Rediger Udfordrignen -->
       <!-- H1 for desktop: -->
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Rediger Udfordringen</h1>
       <h1
-        class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic"
+        class="text-xs-center hidden-md-and-down desktopH1 teal--text font-italic mt-0"
       >{{this.udfordring.udfordringNavn}}</h1>
       <!-- text that says Rediger din udfordrings navn og beskrivelse -->
-      <h2 class="text-xs-center hidden-md-and-down desktopH1">Rediger Navn og Beskrivelse</h2>
+      <h2 class="text-xs-center hidden-md-and-down desktopH1 mt-2">Rediger Navn og Beskrivelse:</h2>
 
       <!-- H1 for everything else: -->
       <h1 class="hidden-lg-and-up smallH1">Rediger Udfordringen</h1>
       <h1 class="hidden-lg-and-up smallH1 teal--text font-italic">{{this.udfordring.udfordringNavn}}</h1>
 
       <!-- header with Rediger Navn og Beskrivelse -->
-      <h2 class="text-xs-center hidden-lg-and-up smallH1 mb-3">Rediger Navn og Beskrivelse</h2>
+      <h2 class="text-xs-center hidden-lg-and-up smallH1 mb-2">Rediger Navn og Beskrivelse:</h2>
     </div>
+
+    <v-layout align-center justify-center row fill-heigh>
+      <v-flex xs12 md7>
     <v-form>
       <!-- header with Navn: -->
-      <h4>Navn:</h4>
+      <h4 class="mb-2">Navn:</h4>
       <!-- Input field for the name with actual name -->
       <v-text-field v-model="udfordring.udfordringNavn" required label="Navn på udfordring"></v-text-field>
       <!-- header with Beskrivelse: -->
-      <h4>Beskrivelse:</h4>
+      <h4 class="mb-2">Beskrivelse:</h4>
       <!-- textbox for the description with acutal description-->
       <v-textarea
         outline
@@ -35,9 +39,11 @@
       ></v-textarea>
 
       <div class="btnContainer">
-        <v-btn class="startChalBtn" color="teal white--text" ripple @click="edit">Næste</v-btn>
+        <v-btn class="startChalBtn" color="teal white--text" ripple @click="edit()">Næste</v-btn>
       </div>
     </v-form>
+     </v-flex>
+    </v-layout>
   </div>
 </template>
 

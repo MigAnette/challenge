@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- modal that opens when the gear icon is clicked -->
-    <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
+    <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-y>
       <template v-slot:activator="{ on }">
         <v-btn flat icon large v-on="on">
           <v-icon large color="grey darken-1">settings</v-icon>
@@ -24,7 +24,9 @@ require("firebase/auth");
 export default {
   name: "SettingProfile",
   data() {
-    return {};
+    return {
+      menu: false,
+    };
   },
   methods: {
     // dynamic change of the background

@@ -1,22 +1,25 @@
 <template>
+<v-layout align-center justify-center row fill-heigh>
+  <v-flex xs12 md7>
+
   <v-form input>
     <!-- Question -->
-    <h4>Hvad kan du få ud af udfordringen?</h4>
+    <h4 class="mb-2">Hvad kan du få ud af udfordringen?</h4>
     <!-- textbox for the answer -->
-    <v-textarea v-model="question1" auto-grow box color="teal" label="Skriv dit svar her" rows="1"></v-textarea>
+    <v-textarea class="mb-3" v-model="question1" auto-grow box color="teal" label="Skriv dit svar her" rows="1"></v-textarea>
 
     <!-- Question -->
-    <h4>Hvad bekymrer dig mest ved at skulle udføre udfordringen?</h4>
+    <h4 class="mb-2">Hvad bekymrer dig mest ved at skulle udføre udfordringen?</h4>
     <!-- textbox for the answer -->
-    <v-textarea v-model="question2" auto-grow box label="Skriv dit svar her" color="teal" rows="1"></v-textarea>
+    <v-textarea class="mb-3" v-model="question2" auto-grow box label="Skriv dit svar her" color="teal" rows="1"></v-textarea>
 
     <!-- Question -->
-    <h4>Hvor nervøs er du for at udføre denne udfordring?</h4>
+    <h4 class="mb-2">Hvor nervøs er du for at udføre denne udfordring?</h4>
     <!-- 5 radiobuttons one can be pushed -->
     <v-layout>
         <v-flex xs6 md2>Lidt</v-flex>
 
-        <v-flex xs6 md10>Mest</v-flex>
+        <v-flex xs6 md10 >Mest</v-flex>
       </v-layout>
 
   <v-layout>
@@ -32,7 +35,7 @@
     </v-layout>
 
     <!-- Question -->
-    <h4>Hvor svær tror du denne udfordring bliver?</h4>
+    <h4 class="mb-2">Hvor svær tror du denne udfordring bliver?</h4>
     <!-- 5 radiobuttons one can be pushed -->
     <v-layout>
         <v-flex xs6 md2>Lidt</v-flex>
@@ -52,7 +55,7 @@
       </v-flex>
     </v-layout>
     <!-- Header with person -->
-    <h4>Skriv de personer der kan hjælpe dig:</h4>
+    <h4 class="mb-2">Skriv de personer der kan hjælpe dig:</h4>
     <!-- input field with add -->
     <v-text-field v-model="personText" hint="Tab for at tilføje" @keydown.tab="addPerson"></v-text-field>
   <v-layout row wrap>
@@ -72,6 +75,8 @@
       <v-btn class="startChalBtn" color="teal white--text" ripple @click="submit">Næste</v-btn>
     </div>
   </v-form>
+  </v-flex>
+</v-layout>
 </template>
 
 <script>

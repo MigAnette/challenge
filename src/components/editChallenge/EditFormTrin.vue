@@ -1,4 +1,6 @@
 <template>
+<v-layout align-center justify-center row fill-heigh>
+      <v-flex xs12 md7>
   <v-form>
     <v-flex mt-5>
       <h2>Trin {{this.trinet.trinNr}}:</h2>
@@ -13,6 +15,8 @@
 
     
   </v-form>
+  </v-flex>
+    </v-layout>
 </template>
 
 <script>

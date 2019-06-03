@@ -1,20 +1,21 @@
 <template>
   <div>
     <!-- back arrow to the page create Trin -->
-    <back-arrow></back-arrow>
+    <back-arrow class="hidden-lg-only"></back-arrow>
+    <back-arrow class="hidden-md-and-down mt-5"></back-arrow>
     <div class="challengeContainer">
       <!-- Header with Udfordringen name dynamic -->
       <!-- H1 for desktop: -->
       <h1 class="text-xs-center hidden-md-and-down desktopH1">Lav Udfordring</h1>
 
-      <!-- header with Tilføj Forventninger -->
-      <h2 class="text-xs-center hidden-md-and-down desktopH1 teal--text">Lav Statusplan</h2>
+      <!-- header with Lav Statusplan -->
+      <h2 class="text-xs-center hidden-md-and-down desktopH1 teal--text mt-0">Lav Statusplan</h2>
 
       <!-- H1 for everything else: -->
       <h1 class="hidden-lg-and-up smallH1">Lav Udfordring</h1>
 
-      <!-- header with Tilføj Forventninger -->
-      <h2 class="text-xs-center hidden-lg-and-up smallH1 teal--text">Lav Statusplan</h2>
+      <!-- header with Lav Statusplan -->
+      <h2 class="text-xs-center hidden-lg-and-up smallH1 teal--text mb-2">Lav Statusplan</h2>
     </div>
     <v-container>
       <form-status></form-status>

@@ -31,7 +31,7 @@ import db from "@/firebase/init";
 import ExampleCardText from "@/components/exampleComponents/ExampleCardText";
 
 export default {
-  name: "Examples",
+  name: "LoggedInExamples",
   components: {
     ExampleCardText
   },

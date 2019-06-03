@@ -8,8 +8,8 @@
     <h1 class="text-xs-center hidden-lg-and-up">Login</h1>
 
     <!-- Text saying Login -->
-    <v-layout align-content-center mt-5>
-      <v-flex xs12>
+    <v-layout mt-5 align-center justify-center row fill-heigh>
+      <v-flex xs12 md5 lg5>
         <v-form class="px-3" ref="form">
           <!-- Email: -->
           <!-- Input for email -->
@@ -28,7 +28,13 @@
           <p v-if="feedback">{{feedback}}</p>
 
           <!-- Button with Tilmeld/submit opens the site you wanted to go to-->
-          <v-btn @click="login" :loading="loading">Login</v-btn>
+          <div class="btnContainer">
+            <v-btn
+              class="startChalBtn"
+              color="teal white--text"
+              @click="login"
+            >Login</v-btn>
+          </div>
         </v-form>
       </v-flex>
     </v-layout>
@@ -64,13 +70,17 @@ export default {
           .auth()
           .signInWithEmailAndPassword(this.email, this.password)
           .then(cred => {
-              this.$router.push({name: 'Home', params: {user_id: cred.user.uid}});
-          }).catch(err => {
-              this.feedback = err.message;
+            this.$router.push({
+              name: "Home",
+              params: { user_id: cred.user.uid }
+            });
+          })
+          .catch(err => {
+            this.feedback = err.message;
           });
-          this.feedback = null;
+        this.feedback = null;
       } else {
-          this.feedback = 'Venligst udfyld begge felter';
+        this.feedback = "Venligst udfyld begge felter";
       }
     }
   }

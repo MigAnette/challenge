@@ -1,7 +1,12 @@
 <template>
   <div>
     <!-- Gear Icon in top right corner showing the settingProfile modal -->
-    <v-toolbar flat color="transparent">
+    <v-toolbar class="hidden-lg-only" flat color="transparent">
+      <v-spacer></v-spacer>
+      <setting-profile></setting-profile>
+    </v-toolbar>
+
+    <v-toolbar class="hidden-md-and-down mt-5" flat color="transparent">
       <v-spacer></v-spacer>
       <setting-profile></setting-profile>
     </v-toolbar>
@@ -18,7 +23,7 @@
       <!-- Header with Dine udfordringer -->
       <h2 class="mt-5 teal--text">Dine Udfordringer:</h2>
     </div>
-      
+
     <v-layout row wrap>
       <v-flex xs12 sm6 md6 lg4 v-for="udfordring in udfordringer" :key="udfordring.id">
         <v-card
@@ -30,7 +35,9 @@
           <v-card-title class="headline">{{ udfordring.udfordringNavn}}</v-card-title>
           <!-- Trin: -->
           <profile-card-text :udfordringen="udfordring"></profile-card-text>
-          <img src="@/assets/Statusbar.png">
+          <v-layout row wrap align-center justify-center fill-height>
+            <img class="mb-3" src="@/assets/Statusbar.png">
+          </v-layout>
         </v-card>
       </v-flex>
     </v-layout>
@@ -64,7 +71,6 @@ export default {
   },
   created() {
     // get challenge with trin
-    
 
     this.user = firebase.auth().currentUser;
 

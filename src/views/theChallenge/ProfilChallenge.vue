@@ -1,7 +1,16 @@
 <template>
   <div>
     <!-- back arrow that goes to the page before top left corner -->
-    <v-toolbar flat color="transparent">
+    <v-toolbar flat class="hidden-lg-only" color="transparent">
+      <back-arrow></back-arrow>
+      <v-spacer></v-spacer>
+      <!-- gear icon that shows a modal with editing the challenge and deleting the challenge -->
+      <!-- component -->
+
+      <setting-challenge></setting-challenge>
+    </v-toolbar>
+
+    <v-toolbar class="hidden-md-and-down mt-5" flat color="transparent">
       <back-arrow></back-arrow>
       <v-spacer></v-spacer>
       <!-- gear icon that shows a modal with editing the challenge and deleting the challenge -->
@@ -21,7 +30,7 @@
 
       <!-- text with the description of the challenge -->
 
-      <p class="challengeText body-1">{{udfordring.udfordringDescrip}}</p>
+      <p class="challengeText body-1 teal--text">{{udfordring.udfordringDescrip}}</p>
     </div>
 
     <!-- statusbar if it was made -->
@@ -58,7 +67,7 @@ import SettingChallenge from "@/components/settings/SettingChallenge";
 import ProfilChallengeCard from "@/components/challengeComponents/ProfilChallengeCard";
 
 export default {
-  name: "Challenge",
+  name: "ProfilChallenge",
   components: {
     BackArrow,
     SettingChallenge,

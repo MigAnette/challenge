@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap>
+  <v-layout row wrap align-center justify-center fill-height>
     <v-flex xs12 sm6 md6 lg4>
       <v-card
         elevation="2"

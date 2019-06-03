@@ -1,7 +1,10 @@
 <template>
   <div>
     <!-- back arrow going to Home page -->
-    <v-toolbar flat color="transparent">
+    <v-toolbar class="hidden-lg-only" flat color="transparent">
+      <back-arrow></back-arrow>
+    </v-toolbar>
+    <v-toolbar class="hidden-md-and-down mt-5" flat color="transparent">
       <back-arrow></back-arrow>
     </v-toolbar>
     <!-- Header with Status -->
@@ -17,9 +20,11 @@
       <h1 class="hidden-lg-and-up smallH1 teal--text">{{udfordring.udfordringNavn}}</h1>
     </div>
 
-    <v-container>
+     <v-layout align-center justify-center row fill-heigh>
+      <v-flex xs12 md7>
+    <v-form>
       <!-- text with Har du løst {{opgave}} -->
-      <h2 class="pt-5 pb-2">Har du løst opgave 3?</h2>
+      <h2 class="pt-5 pb-2">Har du løst opgave 3: Aftal et møde med træner?</h2>
       <!-- selector with ja og nej -->
       <v-select :items="items" placeholder="Ja"></v-select>
       <!-- this has to be hooked up to an update switch based on the answer -->
@@ -33,7 +38,9 @@
           :to="{name: 'StatusReflect', params: {udfordringen_id: udfordring.udfordringSlug, user_id: this.$route.params.user_id}}"
         >Næste</v-btn>
       </div>
-    </v-container>
+    </v-form>
+    </v-flex>
+    </v-layout>
   </div>
 </template>
 

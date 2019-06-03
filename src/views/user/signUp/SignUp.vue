@@ -6,7 +6,7 @@
     <h1 class="text-xs-center hidden-md-and-down desktopH1">Tilmeld for at starte udfordring</h1>
     <!-- H1 for everything else: -->
     <h1 class="text-xs-center hidden-lg-and-up">Tilmeld for at starte udfordring</h1>
-    <v-layout align-content-center mt-5>
+    <v-layout align-center justify-center row fill-heigh mt-5>
       <v-flex xs12 sm6 md6 lg6>
         <v-form class="px-3" ref="form">
           <!-- Email: -->
@@ -30,7 +30,9 @@
           <p v-if="feedback">{{feedback}}</p>
 
           <!-- Button with Tilmeld/submit opens the site you wanted to go to-->
-          <v-btn @click="submit">Tilmeld</v-btn>
+          <div class="btnContainer">
+            <v-btn @click="submit" class="startChalBtn" color="teal white--text">Tilmeld</v-btn>
+          </div>
         </v-form>
       </v-flex>
     </v-layout>
@@ -84,7 +86,13 @@ export default {
           this.userId = cred.user.uid;
         })
         .then(() => {
-          this.$router.push({name: 'AddForventninger', params: {udfordringen_id: this.udfordring.udfordringSlug, user_id: this.userId}});
+          this.$router.push({
+            name: "AddForventninger",
+            params: {
+              udfordringen_id: this.udfordring.udfordringSlug,
+              user_id: this.userId
+            }
+          });
         })
         .catch(err => {
           console.log(err);

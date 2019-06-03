@@ -1,8 +1,8 @@
 <template>
   <v-form>
     <v-layout wrap row>
-      <v-flex mt-3 v-for="opgave in opgaver" :key="opgave">
-        <h4>Opgave {{opgave.opgNr}}</h4>
+      <v-flex xs12 mt-3 v-for="opgave in opgaver" :key="opgave">
+        <h4 class="teal--text mb-2">Opgave {{opgave.opgNr}}</h4>
         <v-textarea
           auto-grow
           required
@@ -12,7 +12,7 @@
           v-model="opgave.opgaveNavn"
         ></v-textarea>
         <h5>Vælg en person der kan hjælpe med opgaven:</h5>
-        <v-select label="Person" :items="personer" v-model="select.person_id[opgave.opgNr]"></v-select>
+        <v-select label="Person" class="mb-2" :items="personer" v-model="select.person_id[opgave.opgNr]"></v-select>
       </v-flex>
     </v-layout>
     <div class="btnContainer">

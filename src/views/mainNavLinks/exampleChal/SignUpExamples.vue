@@ -33,7 +33,7 @@ import BackArrow from "@/components/navigation/BackArrow";
 import ExampleCardText from "@/components/exampleComponents/ExampleCardText";
 
 export default {
-  name: "Examples",
+  name: "SignUpExamples",
   components: {
     BackArrow,
     ExampleCardText
